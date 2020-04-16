@@ -110,6 +110,7 @@
 		) {
 			addToHomescreen();
 		}
+		document.addEventListener('scroll', function (e) { e.preventDefault(); }, false);
 	</script>
 	{%- block script %}{%- endblock %}
 	<!-- csrf_token -->
