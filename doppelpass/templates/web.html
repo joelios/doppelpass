@@ -1,11 +1,11 @@
 {% extends base_template_path %}
-{% block hero %}{% endblock %}
+<!--{#{% block hero %}{% endblock %}#}-->
 
 {% block content %}
-
-{% macro main_content() %}
+{%- block page_content -%}{%- endblock -%}
+<!--{#{% macro main_content() %}
 <div class="page-content-wrapper">
-	<!-- breadcrumbs -->
+
 	<div class="page-breadcrumbs">
 		{% block breadcrumbs %}
 		{% include 'templates/includes/breadcrumbs.html' %}
@@ -59,5 +59,5 @@ id="page-{{ name or route | e }}" data-path="{{ pathname | e }}" {%- if page_or_
 <div {{ container_attributes() }}>
 	{{ main_content() }}
 </div>
-{% endif %}
+{% endif %}#}-->
 {% endblock %}

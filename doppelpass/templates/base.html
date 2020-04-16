@@ -22,6 +22,7 @@
 	<link rel="manifest" href="assets/doppelpass/manifest.json">
 	
 	<link type="text/css" rel="stylesheet" href="/assets/doppelpass/css/addtohomescreen.css">
+	<link href="assets/doppelpass/css/fontawesome-free/css/all.min.css" rel="stylesheet">
 
 	{% block meta_block %}
 		{% include "templates/includes/meta_block.html" %}
@@ -78,17 +79,17 @@
 		{%- endif %}
 	{%- endblock -%}
 
-	{%- block navbar -%}
+	<!--{#{%- block navbar -%}
 		{% include "templates/includes/navbar/navbar.html" %}
-	{%- endblock -%}
+	{%- endblock -%}#}-->
 
 	{% block content %}
 		{{ content }}
 	{% endblock %}
 
-	{%- block footer -%}
+	<!--{#{%- block footer -%}
 		{% include "templates/includes/footer/footer.html" %}
-	{%- endblock -%}
+	{%- endblock -%}#}-->
 
 	{% block base_scripts %}
 	<!-- js should be loaded in body! -->

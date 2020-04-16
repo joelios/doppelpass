@@ -1,3 +1,47 @@
 {% extends "templates/web.html" %}
 {% block page_content %}
+<div class="container-fluid fixed-top">
+	<div class="row" style="background-color: #007bff; height: 150px;">
+	</div>
+	<div class="row bg-light" style="padding-top: 3px; padding-bottom: 5px;">
+		<div class="col-3">
+			<button class="btn bg-dark" type="submit" style="color: white; width: 81px; padding: 0;">Zeit</button>
+		</div>
+		<div class="col-3">
+			<button class="btn bg-dark" type="submit" style="color: white; width: 81px; padding: 0;">Blöcke</button>
+		</div>
+		<div class="col-3">
+			<button class="btn bg-dark" type="submit" style="color: white; width: 81px; padding: 0;">Statistik</button>
+		</div>
+		<div class="col-3">
+			<button class="btn bg-dark" type="submit" style="color: white; width: 81px; padding: 0;">Weitere</button>
+		</div>
+	</div>
+</div>
+<div class="container-fluid bg-dark" style="height: 99vh; padding-top: 200px; padding-left: 30px; padding-right: 30px;">
+	<div class="row">
+		<div class="col-12" style="border: 2px solid #fafbfc; height: 100px; border-radius: 25px;"></div>
+	</div>
+</div>
+<div class="container-fluid" id="bottomnav" style="border: 1px solid black;">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+		<div class="row">
+			<div class="col">
+				<button class="btn" type="submit" style="color: white;"><i class="far fa-chart-bar"></i></button>
+			</div>
+			<div class="col">
+				<button class="btn" type="submit" style="color: white;"><i class="far fa-newspaper"></i></button>
+			</div>
+			<div class="col">
+				<button class="btn" type="submit" style="color: white;"><i class="fas fa-users"></i></button>
+			</div>
+			<div class="col">
+				<button class="btn" type="submit" style="color: white;"><i class="far fa-user-circle"></i></button>
+			</div>
+			<div class="col">
+				<button class="btn" type="submit" style="color: white;"><i class="fas fa-bars"></i></button>
+			</div>
+		</div>
+	</nav> 
+</div>
 {% endblock %}
