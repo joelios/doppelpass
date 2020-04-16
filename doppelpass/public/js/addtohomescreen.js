@@ -36,7 +36,8 @@ ath.intl = {
 	},
 
 	de_de: {
-		ios: 'Um diese Web-App zum Home-Bildschirm hinzuzufügen, tippen Sie auf %icon und dann <strong>Zum Home-Bildschirm</strong>.',
+		//ios: 'Um diese Web-App zum Home-Bildschirm hinzuzufügen, tippen Sie auf %icon und dann <strong>Zum Home-Bildschirm</strong>.',
+		ios: '<strong>Dies ist eine Web-App</strong><br>Fügen Sie die Web-App bitte zuerst zu Ihrem Home-Bildschirm hinzu. Tippen Sie dafür auf %icon und dann <strong>Zum Home-Bildschirm</strong>.<br>Starten Sie anschliessend die Web-App von Ihrem Homebildschirm aus neu.',
 		android: 'Um diese Web-App zum Home-Bildschirm hinzuzufügen, öffnen Sie das Menü und tippen dann auf <strong>Zum Startbildschirm hinzufügen</strong>. <small>Wenn Ihr Gerät eine Menütaste hat, lässt sich das Browsermenü über diese öffnen. Ansonsten tippen Sie auf %icon.</small>'
 	},
 
@@ -162,13 +163,13 @@ ath.defaults = {
 	fontSize: 15,				// base font size, used to properly resize the popup based on viewport scale factor
 	debug: false,				// override browser checks
 	logging: false,				// log reasons for showing or not showing to js console; defaults to true when debug is true
-	modal: false,				// prevent further actions until the message is closed
-	mandatory: false,			// you can't proceed if you don't add the app to the homescreen
+	modal: true,				// prevent further actions until the message is closed
+	mandatory: true,			// you can't proceed if you don't add the app to the homescreen
 	autostart: true,			// show the message automatically
 	skipFirstVisit: false,		// show only to returning visitors (ie: skip the first time you visit)
-	startDelay: 1,				// display the message after that many seconds from page load
-	lifespan: 15,				// life of the message in seconds
-	displayPace: 1440,			// minutes before the message is shown again (0: display every time, default 24 hours)
+	startDelay: 0,				// display the message after that many seconds from page load
+	lifespan: 86400,				// life of the message in seconds
+	displayPace: 0,			// minutes before the message is shown again (0: display every time, default 24 hours)
 	maxDisplayCount: 0,			// absolute maximum number of times the message will be shown to the user (0: no limit)
 	icon: true,					// add touch icon to the message
 	message: '',				// the message can be customized
