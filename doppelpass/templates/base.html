@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- Built on Frappe. https://frappe.io/ -->
-<html lang="en">
+<html lang="de">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,46 +18,18 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="assets/doppelpass/images/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/doppelpass/images/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/doppelpass/images/favicon-16x16.png">
+	<link rel="shortcut icon" href="assets/doppelpass/images/favicon.ico" type="image/x-icon">
+	
 	<link rel="manifest" href="assets/doppelpass/manifest.json">
 	
+	<link type="text/css" rel="stylesheet" href="/assets/css/frappe-web-b4.css">
 	<link type="text/css" rel="stylesheet" href="/assets/doppelpass/css/addtohomescreen.css">
 	<link href="assets/doppelpass/css/fontawesome-free/css/all.min.css" rel="stylesheet">
-
-	{% block meta_block %}
-		{% include "templates/includes/meta_block.html" %}
-	{% endblock %}
-
-	<title>{% block title %} {{ title | striptags }} {% endblock %}</title>
-
-	{% block favicon %}
-	<link
-		rel="shortcut icon"
-		href="assets/doppelpass/images/favicon.ico"
-		type="image/x-icon"
-	>
-	{% endblock %}
-
-	{%- block head -%}
-		{% if head_html is defined -%}
-		{{ head_html or "" }}
-		{%- endif %}
-
-		{% if theme.theme_url %}
-		<link type="text/css" rel="stylesheet" href="{{ theme.theme_url }}">
-		{% else %}
-		<link type="text/css" rel="stylesheet" href="/assets/css/frappe-web-b4.css">
-
-		{%- for link in web_include_css %}
+	{%- for link in web_include_css %}
 		<link type="text/css" rel="stylesheet" href="{{ link|abs_url }}">
-		{%- endfor -%}
-		{% endif %}
-	{%- endblock -%}
-
-	{%- block head_include %}
-		{{ head_include or "" }}
-	{% endblock -%}
-
-	{%- block style %}{%- endblock -%}
+	{%- endfor -%}
+		
+	<title>{% block title %} {{ title | striptags }} {% endblock %}</title>
 
 	<script>
 		window.frappe = {};
@@ -71,45 +42,29 @@
     </script>
 </head>
 <body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {% endif -%} style="background-color: #36414c;">
-	{%- block banner -%}
-		{% include "templates/includes/banner_extension.html" ignore missing %}
-
-		{% if banner_html -%}
-		{{ banner_html or "" }}
-		{%- endif %}
-	{%- endblock -%}
-
-	<!--{#{%- block navbar -%}
-		{% include "templates/includes/navbar/navbar.html" %}
-	{%- endblock -%}#}-->
-
 	{% block content %}
 		{{ content }}
 	{% endblock %}
-
-	<!--{#{%- block footer -%}
-		{% include "templates/includes/footer/footer.html" %}
-	{%- endblock -%}#}-->
-
+	
 	{% block base_scripts %}
-	<!-- js should be loaded in body! -->
-	<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/js/frappe-web.min.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+		<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="/assets/js/frappe-web.min.js"></script>
+		<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+		<script type="text/javascript" src="/assets/doppelpass/js/addtohomescreen.js"></script>
 	{% endblock %}
 
 	{%- for link in web_include_js %}
 	<script type="text/javascript" src="{{ link | abs_url }}"></script>
 	{%- endfor -%}
-	<script type="text/javascript" src="/assets/doppelpass/js/addtohomescreen.js"></script>
+	
 	<script>
-		if (
+		/*if (
 			(("standalone" in window.navigator) && !window.navigator.standalone)
 			||
 			( !window.matchMedia('(display-mode: standalone)').matches )
 		) {
 			addToHomescreen();
-		}
+		}*/
 	</script>
 
 
@@ -124,6 +79,7 @@
 		</div>
 	  </div>
 	</div>
+	
   <script>
 	window.addEventListener('orientationchange', checkOrientation, false);
 		function checkOrientation() { 
@@ -138,8 +94,6 @@
 			}
 		} 
 	</script>
-	{%- block script %}{%- endblock %}
 	<!-- csrf_token -->
-	{%- block body_include %}{{ body_include or "" }}{% endblock -%}
 </body>
 </html>

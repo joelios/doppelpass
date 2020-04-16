@@ -1,0 +1,45 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<div class="container-fluid fixed-top bg-dark" style="color: white;">
+	<img src="assets/doppelpass/images/logo.png" class="mx-auto d-block img-fluid" style="margin-top: 10px; margin-bottom: 10px;">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4 bg-success" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_training';">
+			<center>
+				<i class="fas fa-running" style="font-size: 73px;"></i>
+				<p style="font-size: 10px; margin-bottom: 0;">Training</p>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-4 bg-danger" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_spielbetrieb';">
+			<center>
+				<i class="fas fa-trophy" style="font-size: 73px;"></i>
+				<p style="font-size: 10px; margin-bottom: 0;">Spielbetrieb</p>
+			</center>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4 bg-primary" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_statistik';">
+			<center>
+				<i class="far fa-chart-bar" style="font-size: 73px;"></i>
+				<p style="font-size: 10px; margin-bottom: 0;">Statistik</p>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-4 bg-warning" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_budget';">
+			<center>
+				<i class="far fa-money-bill-alt" style="font-size: 73px;"></i>
+				<p style="font-size: 10px; margin-bottom: 0;">Budget</p>
+			</center>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-4 bg-secondary" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_konfiguration';">
+			<center>
+				<i class="fas fa-cogs" style="font-size: 73px;"></i>
+				<p style="font-size: 10px; margin-bottom: 0;">Konfiguration</p>
+			</center>
+		</div>
+	</div>
+</div>
+{% endblock %}
