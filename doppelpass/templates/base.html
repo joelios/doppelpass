@@ -20,6 +20,8 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/doppelpass/images/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/doppelpass/images/favicon-16x16.png">
 	<link rel="manifest" href="assets/doppelpass/manifest.json">
+	
+	<link type="text/css" rel="stylesheet" href="/assets/doppelpass/css/addtohomescreen.css">
 
 	{% block meta_block %}
 		{% include "templates/includes/meta_block.html" %}
@@ -98,7 +100,16 @@
 	{%- for link in web_include_js %}
 	<script type="text/javascript" src="{{ link | abs_url }}"></script>
 	{%- endfor -%}
-
+	<script type="text/javascript" src="/assets/doppelpass/js/addtohomescreen.js"></script>
+	<script>
+		if (
+			(("standalone" in window.navigator) && !window.navigator.standalone)
+			||
+			( !window.matchMedia('(display-mode: standalone)').matches )
+		) {
+			addToHomescreen();
+		}
+	</script>
 	{%- block script %}{%- endblock %}
 	<!-- csrf_token -->
 	{%- block body_include %}{{ body_include or "" }}{% endblock -%}
