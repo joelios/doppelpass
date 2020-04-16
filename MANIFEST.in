@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include doppelpass *.css
+recursive-include doppelpass *.csv
+recursive-include doppelpass *.html
+recursive-include doppelpass *.ico
+recursive-include doppelpass *.js
+recursive-include doppelpass *.json
+recursive-include doppelpass *.md
+recursive-include doppelpass *.png
+recursive-include doppelpass *.py
+recursive-include doppelpass *.svg
+recursive-include doppelpass *.txt
+recursive-exclude doppelpass *.pyc
