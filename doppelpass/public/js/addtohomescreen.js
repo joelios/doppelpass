@@ -500,10 +500,12 @@ ath.Class.prototype = {
 		} else if ( ath.OS in ath.intl[ath.language] ) {				// otherwise we use our message
 			message = ath.intl[ath.language][ath.OS];
 		}
+		
+		//console.log(ath.OS);
 
 		// add the action icon
 		message = '<p>' + message.replace(/%icon(?:\[([^\]]+)\])?/gi, function(matches, group1) {
-			return '<span class="ath-action-icon">' + (!!group1 ? group1 : 'icon') + '</span>';
+			return '<span class="' + ath.OS + ' ath-action-icon">' + (!!group1 ? group1 : 'icon') + '</span>';
 		}) + '</p>';
 
 		// create the message container
