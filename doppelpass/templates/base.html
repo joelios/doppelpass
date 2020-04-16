@@ -28,6 +28,7 @@
 	{%- for link in web_include_css %}
 		<link type="text/css" rel="stylesheet" href="{{ link|abs_url }}">
 	{%- endfor -%}
+	{% block style %}{% endblock %}
 		
 	<title>{% block title %} {{ title | striptags }} {% endblock %}</title>
 
@@ -56,7 +57,7 @@
 	{%- for link in web_include_js %}
 	<script type="text/javascript" src="{{ link | abs_url }}"></script>
 	{%- endfor -%}
-	
+	{% block script %}{% endblock%}
 	<script>
 		/*if (
 			(("standalone" in window.navigator) && !window.navigator.standalone)

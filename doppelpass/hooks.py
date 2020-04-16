@@ -35,7 +35,7 @@ base_template_path = "/doppelpass/templates/base.html"
 # ----------
 
 # application home page (will override Website Settings)
-home_page = "setup"
+home_page = "login"
 website_route_rules = [
 	{"from_route": "/me", "to_route": "/hauptmenu"}
 ]
