@@ -1,7 +1,7 @@
 {% extends "templates/web.html" %}
 {% block page_content %}
-<div class="container-fluid fixed-top" style="background-color: #007bff; color: white;">
-	<div class="row">
+<div class="container-fluid fixed-top bg-dark" style="color: white;">
+	<div class="row" style="background-color: #007bff;">
 		<div class="col-3" style="text-align: left;">
 			<i class="fas fa-cog"></i>
 		</div>
@@ -12,7 +12,7 @@
 			<i class="fas fa-cube"></i>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="background-color: #007bff;">
 		<div class="col-4" style="text-align: right;">
 			<img src="https://res.cloudinary.com/swiss-unihockey/image/upload/t_club_logo_small/jdu35snmn5xxxszun4lr.png">
 		</div>
@@ -24,7 +24,7 @@
 			<img src="https://res.cloudinary.com/swiss-unihockey/image/upload/t_club_logo_small/gd8kko7xrqokdryw7gj9.png">
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="background-color: #007bff;">
 		<div class="col-6" style="text-align: center;">
 			<p style="margin-bottom: 5px;">HC Rychenberg</p>
 		</div>
@@ -32,7 +32,7 @@
 			<p style="margin-bottom: 5px;">Winterthur United</p>
 		</div>
 	</div>
-	<div class="row bg-light" style="padding-top: 3px; padding-bottom: 5px;">
+	<div class="row bg-light" style="padding-top: 3px; padding-bottom: 5px; margin-bottom: 5px;">
 		<div class="col-3">
 			<button class="btn bg-dark" type="submit" style="color: white; width: 81px; padding: 0;">Zeit</button>
 		</div>
@@ -46,10 +46,11 @@
 			<button class="btn bg-dark" type="submit" style="color: white; width: 70px; padding: 0;">Weitere</button>
 		</div>
 	</div>
-</div>
-<div class="container-fluid bg-dark" style="height: 90vh; padding-top: 175px; padding-left: 30px; padding-right: 30px;">
-	<div class="row">
-		<div class="col-12" style="border: 2px solid #fafbfc; height: 100px; border-radius: 25px;">
+<!-- </div>
+<div class="container-fluid bg-dark" style="height: 90vh; padding-top: 175px; padding-left: 30px; padding-right: 30px;"> -->
+	<div class="row bg-dark">
+		<div class="col-1"></div>
+		<div class="col-10" style="border: 2px solid #fafbfc; height: 100px; border-radius: 25px; padding-left: 30px; padding-right: 30px;">
 			<div class="row" style="color: white; text-align: center;">
 				<div class="col-3"></div>
 				<div class="col-6">
@@ -59,22 +60,23 @@
 				<div class="col-3"></div>
 			</div>
 		</div>
+		<div class="col-1"></div>
 	</div>
-	<div class="row" style="margin-top: 15px;">
+	<div class="row bg-dark" style="margin-top: 15px;">
 		<div class="col-4"></div>
 		<div class="col-4" style="text-align: center; background-color: #28a745; color: white; border-radius: 25px; padding: 15px;">
 			<i class="fas fa-stopwatch" style="font-size: 50px;"></i>
 		</div>
 		<div class="col-4"></div>
 	</div>
-	<div class="row">
+	<div class="row bg-dark">
 		<div class="col-4"></div>
 		<div class="col-4" style="text-align: center; color: white;">
 			<p style="font-size: 14px; margin-bottom: 0;">Zeit anhalten</p>
 		</div>
 		<div class="col-4"></div>
 	</div>
-	<div class="row" style="margin-top: 15px;">
+	<div class="row bg-dark" style="margin-top: 15px;">
 		<div class="col-1"></div>
 		<div class="col-2" style="text-align: center; background-color: #28a745; color: white; border-radius: 25px; padding: 15px;">
 			<i class="fas fa-hourglass-half" style="font-size: 25px;"></i>
@@ -89,7 +91,7 @@
 		<div class="col-1"></div>
 	</div>
 	
-	<div class="row" style="margin-top: 15px;">
+	<div class="row bg-dark" style="margin-top: 15px;">
 		<div class="col-1"></div>
 		<div class="col-2" style="text-align: center; background-color: #28a745; color: white; border-radius: 25px; padding: 15px;">
 			<i class="far fa-hand-peace" style="font-size: 25px;"></i>
@@ -104,7 +106,7 @@
 		<div class="col-1"></div>
 	</div>
 	
-	<div class="row" style="margin-top: 15px;">
+	<div class="row bg-dark" style="margin-top: 15px;">
 		<div class="col-1"></div>
 		<div class="col-2" style="text-align: center; background-color: #28a745; color: white; border-radius: 25px; padding: 15px;">
 			<i class="fas fa-hammer" style="font-size: 25px;"></i>
@@ -118,9 +120,9 @@
 		</div>
 		<div class="col-1"></div>
 	</div>
-</div>
-<div class="container-fluid bg-dark" id="bottomnav">
-	<ul class="nav justify-content-center" style="font-size: 2rem;">
+<!-- </div>
+<div class="container-fluid bg-dark" id="bottomnav"> -->
+	<ul class="nav justify-content-center bg-dark" style="font-size: 2rem;">
 		<li><button class="btn" style="color: white; font-size: 2rem;"><i class="far fa-chart-bar"></i></button></li>
 		<li><button class="btn" style="color: white; font-size: 2rem;"><i class="far fa-newspaper"></i></button></li>
 		<li><button class="btn" style="color: white; font-size: 2rem;"><i class="fas fa-users"></i></button></li>
