@@ -1,3 +1,4 @@
+body {OVERFLOW:scroll;OVERFLOW-Y:hidden}
 .ath-viewport * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
