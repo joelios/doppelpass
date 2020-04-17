@@ -1,3 +1,15 @@
+.hide {
+	visibility: hidden;
+}
+.modal-header .flex.justify-between .fill-width span {
+	visibility: hidden;
+}
+.modal-header .flex.justify-between .text-right.buttons {
+	height: 0;
+}
+.msgprint-dialog .modal-header {
+		display: block;
+}
 
 .ath-viewport * {
 	-webkit-box-sizing: border-box;
