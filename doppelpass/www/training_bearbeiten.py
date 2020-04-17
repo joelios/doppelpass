@@ -9,6 +9,5 @@ from frappe import _
 no_cache = 1
 
 def get_context(context):
-	if frappe.session.user != "Guest":
-		frappe.local.flags.redirect_location = "/hauptmenu" if frappe.session.data.user_type=="Website User" else "/desk"
-		raise frappe.Redirect
+	context["trainings"] = frappe.db.sql("""SELECT `name`, `datum`, `team`, FROM `tabTraining`""", as_dict=True)
+	return context
