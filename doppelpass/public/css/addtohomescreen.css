@@ -1,3 +1,28 @@
+.form-footer, .form-footer a, .form-footer h6 {
+	color: white !important;
+}
+.login-content.page-card {
+	background-color: transparent !important;
+	border: 1px solid white !important;
+}
+.btn.btn-sm.btn-primary.btn-block.btn-login {
+	background-color: white;
+	color: rgba(71, 175, 248, 0.6) !important;
+	border: 1px solid white;
+}
+.btn.btn-sm.btn-primary.btn-block.btn-signup {
+	background-color: white;
+	color: rgba(71, 175, 248, 0.6) !important;
+	border: 1px solid white;
+}
+.btn.btn-sm.btn-primary.btn-block.btn-forgot {
+	background-color: white;
+	color: rgba(71, 175, 248, 0.6) !important;
+	border: 1px solid white;
+}
+.page-card-head span {
+	color: white !important;
+}
 .hide {
 	visibility: hidden;
 }

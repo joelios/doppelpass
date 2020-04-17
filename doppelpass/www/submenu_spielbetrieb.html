@@ -3,39 +3,33 @@
 {% block page_content %}
 <div class="container-fluid fixed-top" style="color: white; background-color: #47aff8">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-12" style="margin-top: 5vh; margin-bottom: 15vh;">
 			<center><p style="font-size: 50px;">Spielbetrieb</p></center>
 		</div>
-		<div class="col-xs-1"></div>
-		<div class="col-xs-4" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0;">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0;">
 			<center>
-				<i class="fas fa-trophy" style="font-size: 73px;"></i>
+				<i class="fas fa-trophy" style="font-size: 40px;"></i>
 				<p style="font-size: 10px; margin-bottom: 0;">Spieldaten</p>
 			</center>
 		</div>
 		<div class="col-xs-2"></div>
-		<div class="col-xs-4" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0;">
+		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0;">
 			<center>
-				<i class="far fa-chart-bar" style="font-size: 73px;"></i>
+				<i class="far fa-chart-bar" style="font-size: 40px;"></i>
 				<p style="font-size: 10px; margin-bottom: 0;">Spielstatistik</p>
 			</center>
 		</div>
-		<div class="col-xs-1"></div>
-		<div class="col-xs-1"></div>
-		<div class="col-xs-4" style="background-color: #47aff8; border: 1px solid white; color: white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_swissunihockey';">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; color: white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_swissunihockey';">
 			<center>
 				<img src="assets/doppelpass/images/swissunihockey.jpg" width="73">
-				<p style="font-size: 10px; margin-bottom: 0;">Swissunihockey</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-4" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/hauptmenu';">
-			<center>
-				<i class="fas fa-arrow-left" style="font-size: 73px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Zurück</p>
-			</center>
-		</div>
-		<div class="col-xs-1"></div>
 	</div>
 </div>
+<ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: #47aff8">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/hauptmenu';"><i class="fas fa-arrow-left"></i></button></li>
+</ul>
 {% endblock %}

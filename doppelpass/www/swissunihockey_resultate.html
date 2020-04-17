@@ -1,11 +1,10 @@
 {% extends "templates/web.html" %}
 {% block title %}Resultate{% endblock %}
 {% block page_content %}
-<table class="table table-striped" style="color: white; text-align: center;" id="tabelle">
+<table class="table table-striped" style="color: white; text-align: center; font-size: 12px;" id="tabelle">
 	<thead>
 		<tr>
-			<th>Datum / Zeit</th>
-			<th>Ort</th>
+			<th>Datum</th>
 			<th>Heim</th>
 			<th>Gast</th>
 			<th>Result.</th>
@@ -15,7 +14,6 @@
 	{% for ranking in resultate["data"]["regions"][0]["rows"] %}
 		<tr>
 			<td>{{ ranking["cells"][0]["text"][0] }}<br>{{ ranking["cells"][0]["text"][1] }}</td>
-			<td>{{ ranking["cells"][1]["text"][0] }}<br>{{ ranking["cells"][1]["text"][1] }}</td>
 			<td>{{ ranking["cells"][2]["text"][0] }}</td>
 			<td>{{ ranking["cells"][3]["text"][0] }}</td>
 			<td>{{ ranking["cells"][4]["text"][0] }}</td>
@@ -23,37 +21,7 @@
 	{% endfor %}
 	</tbody>
 </table>
-<!--<div class="container-fluid fixed-top bg-dark" style="color: white;">-->
-	<div class="row" id="back" style="max-width: 100%;">
-		<div class="col-xs-4"></div>
-		<div class="col-xs-4 bg-info" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_swissunihockey';">
-			<center>
-				<i class="fas fa-arrow-left" style="font-size: 73px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Zurück</p>
-			</center>
-		</div>
-		<div class="col-xs-4"></div>
-	</div>
-<!--</div>-->
-{% endblock %}
-{% block script %}
-	<script>
-	window.addEventListener('orientationchange', checkOrientation, false);
-	$( document ).ready(function() {
-		checkOrientation();
-	});
-	function checkOrientation() { 
-		opt1 = $('body').width();
-		opt2 = $(window).height();
-		if (opt1 < opt2) {
-			$('#tabelle').hide();
-			$('#back').hide();
-			$('#myModal').show();
-		} else {
-			$('#tabelle').show();
-			$('#back').show();
-			$('#myModal').hide();
-		}
-	} 
-	</script>
+<ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: #47aff8">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/submenu_swissunihockey';"><i class="fas fa-arrow-left"></i></button></li>
+</ul>
 {% endblock %}

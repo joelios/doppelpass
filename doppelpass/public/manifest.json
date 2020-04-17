@@ -39,7 +39,7 @@
    "density": "4.0"
   }
  ],
-  "start_url": "https://doppelpass.msmr.ch/login",
+  "start_url": "https://doppelpass.msmr.ch/setup",
   "display": "standalone",
   "orientation": "portrait"
 }
