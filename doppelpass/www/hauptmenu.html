@@ -1,6 +1,7 @@
 {% extends "templates/web.html" %}
+{% block title %}Hauptmenü{% endblock %}
 {% block page_content %}
-<div class="container-fluid fixed-top bg-dark" style="color: white;">
+<div class="container-fluid fixed-top bg-dark" style="color: white;" id="content">
 	<img src="assets/doppelpass/images/logo.png" class="mx-auto d-block img-fluid" style="margin-top: 10px; margin-bottom: 10px;">
 	<div class="row">
 		<div class="col-xs-1"></div>
@@ -26,9 +27,9 @@
 			</center>
 		</div>
 		<div class="col-xs-2"></div>
-		<div class="col-xs-4 bg-warning" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_budget';">
+		<div class="col-xs-4 bg-warning" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/hauptmenu';">
 			<center>
-				<i class="far fa-money-bill-alt" style="font-size: 73px;"></i>
+				<i class="fas fa-dollar-sign" style="font-size: 73px;"></i>
 				<p style="font-size: 10px; margin-bottom: 0;">Budget</p>
 			</center>
 		</div>
@@ -41,13 +42,34 @@
 			</center>
 		</div>
 		<div class="col-xs-2"></div>
-		<div class="col-xs-4 bg-light" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/?cmd=logout';">
+		<div class="col-xs-4 bg-light" style="border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer; color: black;" onclick="window.location='/setup?cmd=web_logout';">
 			<center>
-				<i class="far fa-money-bill-alt" style="font-size: 73px;"></i>
+				<i class="fas fa-key" style="font-size: 73px;"></i>
 				<p style="font-size: 10px; margin-bottom: 0;">Logout</p>
 			</center>
 		</div>
 		<div class="col-xs-1"></div>
 	</div>
 </div>
+{% endblock %}
+{% block script %}
+	<script>
+	window.addEventListener('orientationchange', checkOrientation, false);
+	$( document ).ready(function() {
+		checkOrientation();
+	});
+	function checkOrientation() { 
+		opt1 = $('body').width();
+		opt2 = $(window).height();
+		if (opt1 < 1000) {
+			if (opt1 < opt2) {
+				$('#content').show();
+				$('#myModal').hide();
+			} else {
+				$('#content').hide();
+				$('#myModal').show();
+			}
+		}
+	} 
+	</script>
 {% endblock %}

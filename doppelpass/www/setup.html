@@ -1,6 +1,20 @@
 {% extends "templates/web.html" %}
 {% block page_content %}
+{% block title %}Doppelpass{% endblock %}
 <center>
-	<img src="assets/doppelpass/images/logo_einzel.png" width="200">
+	<h1 style="color: white;">Doppelpass</h1>
+	<img src="assets/doppelpass/images/logo_einzel.png" width="200"><br><br>
+	<p><a href="/login"><button type="button" class="btn btn-secondary">Login</button></a></p>
 </center>
+{% endblock %}
+{% block script %}
+<script>
+		if (
+			(("standalone" in window.navigator) && !window.navigator.standalone)
+			||
+			( !window.matchMedia('(display-mode: standalone)').matches )
+		) {
+			addToHomescreen();
+		}
+	</script>
 {% endblock %}

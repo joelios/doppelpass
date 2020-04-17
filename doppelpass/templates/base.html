@@ -59,13 +59,13 @@
 	{%- endfor -%}
 	{% block script %}{% endblock %}
 	<script>
-		if (
+		/*if (
 			(("standalone" in window.navigator) && !window.navigator.standalone)
 			||
 			( !window.matchMedia('(display-mode: standalone)').matches )
 		) {
 			addToHomescreen();
-		}
+		}*/
 	</script>
 
 
@@ -75,26 +75,11 @@
 		<div class="modal-content">
 		  <!-- Modal Header -->
 		  <div class="modal-header">
-			<center><h4 class="modal-title">Bitte halten Sie Ihr Telefon Vertikal!</h4></center>
+			<center><h4 class="modal-title">Bitte drehen Sie Ihren Bildschirm!</h4></center>
 		  </div>
 		</div>
 	  </div>
 	</div>
-	
-  <script>
-	window.addEventListener('orientationchange', checkOrientation, false);
-		function checkOrientation() { 
-			opt1 = $('body').width();
-			opt2 = $(window).height();
-			if (opt1 < opt2) {
-				$('.container-fluid.fixed-top.bg-dark').show();
-				$('#myModal').hide();
-			} else {
-				$('.container-fluid.fixed-top.bg-dark').hide();
-				$('#myModal').show();
-			}
-		} 
-	</script>
 	<!-- csrf_token -->
 	{%- block body_include %}{{ body_include or "" }}{% endblock -%}
 </body>
