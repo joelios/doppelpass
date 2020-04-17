@@ -49,3 +49,24 @@ function update() {
 		});
 	}
 }
+
+function delete_training() {
+	var training = $('#training').val();
+	if (training != 'leer') {
+		frappe.msgprint("Bitte wählen Sie ein Training aus!", "Fehlende Angaben");
+		return
+	} else {
+		frappe.call({
+			method: 'doppelpass.www.training_bearbeiten.delete',
+			args: {
+				training: training
+			},
+			callback: function(r) {
+				if(r.message) {
+					frappe.msgprint("Das Training wurde erfolgreich gelöscht.", "Info");
+					setTimeout(function(){ location.reload(); }, 2000);
+				} 
+			}
+		});
+	}
+}

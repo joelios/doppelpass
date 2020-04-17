@@ -20,3 +20,8 @@ def get(training):
 def update(training, ort, datum, details, team):
 	frappe.db.sql("""UPDATE `tabTraining` SET `details` = '{details}', `ort` = '{ort}', `datum` = '{datum}', `team` = '{team}' WHERE `name` = '{training}'""".format(training=training, details=details, ort=ort, datum=datum, team=team), as_list=True)
 	return 'ok'
+	
+@frappe.whitelist()
+def delete(training):
+	frappe.db.sql("""DELETE FROM `tabTraining` WHERE `name` = '{training}'""".format(training=training), as_list=True)
+	return 'ok'
