@@ -18,6 +18,12 @@ function load_training() {
 				}
 			});
 		}
+	} else {
+		$('#team').val('leer');
+		$('#datum').val('');
+		$('#ort').val('');
+		$('#details').val('');
+		$('#training').val('leer');
 	}
 }
 
@@ -27,7 +33,7 @@ function update() {
 	var ort = $('#ort').val();
 	var details = $('#details').val();
 	var training = $('#training').val();
-	if ((!team)||(!datum)||(!ort)) {
+	if ((!team)||(!datum)||(!ort)||(training == 'leer')) {
 		frappe.msgprint("Bitte füllen Sie alle Pflichtfelder aus!", "Fehlende Angaben");
 		return
 	} else {
@@ -43,6 +49,11 @@ function update() {
 			callback: function(r) {
 				if(r.message) {
 					frappe.msgprint("Das Training wurde erfolgreich angepasst.", "Info");
+					$('#team').val('leer');
+					$('#datum').val('');
+					$('#ort').val('');
+					$('#details').val('');
+					$('#training').val('leer');
 					setTimeout(function(){ location.reload(); }, 2000);
 				} 
 			}
@@ -52,7 +63,7 @@ function update() {
 
 function delete_training() {
 	var training = $('#training').val();
-	if (training != 'leer') {
+	if (training == 'leer') {
 		frappe.msgprint("Bitte wählen Sie ein Training aus!", "Fehlende Angaben");
 		return
 	} else {
@@ -64,6 +75,11 @@ function delete_training() {
 			callback: function(r) {
 				if(r.message) {
 					frappe.msgprint("Das Training wurde erfolgreich gelöscht.", "Info");
+					$('#team').val('leer');
+					$('#datum').val('');
+					$('#ort').val('');
+					$('#details').val('');
+					$('#training').val('leer');
 					setTimeout(function(){ location.reload(); }, 2000);
 				} 
 			}

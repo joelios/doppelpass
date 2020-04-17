@@ -8,7 +8,7 @@
 			<div class="form-group">
 				<label for="training">Auswahl Training:</label>
 				<select class="form-control" id="training" onchange="load_training();">
-					<option value="leer">Bitte ein Trainng auswählen</option>
+					<option value="leer">Bitte ein Training auswählen</option>
 					{% for training in trainings %}
 					<option value="{{ training.name }}">{{ training.datum }} - {{ training.team }}</option>
 					{% endfor %}
@@ -17,9 +17,9 @@
 			<div class="form-group" id="edit_area">
 				<label for="team">Team:</label>
 				<select class="form-control" id="team">
-					<option></option>
-					<option>NLA</option>
-					<option>Herren II</option>
+					<option value="leer"></option>
+					<option value="NLA">NLA</option>
+					<option value="Herren II">Herren II</option>
 				</select>
 				<label for="datum">Wann:</label>
 				<input type="date" class="form-control" id="datum">
