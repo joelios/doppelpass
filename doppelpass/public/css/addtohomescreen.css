@@ -1,6 +1,9 @@
 .hide {
 	visibility: hidden;
 }
+.btn.btn-default.btn-sm.btn-modal-close {
+	visibility: hidden;
+}
 .modal-header .flex.justify-between .fill-width span {
 	visibility: hidden;
 }
