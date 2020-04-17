@@ -8,6 +8,7 @@
 			<div class="form-group">
 				<label for="training">Auswahl Training:</label>
 				<select class="form-control" id="training" onchange="load_training();">
+					<option value="leer">Bitte ein Trainng auswählen</option>
 					{% for training in trainings %}
 					<option value="{{ training.name }}">{{ training.datum }} - {{ training.team }}</option>
 					{% endfor %}
@@ -16,6 +17,7 @@
 			<div class="form-group" id="edit_area">
 				<label for="team">Team:</label>
 				<select class="form-control" id="team">
+					<option></option>
 					<option>NLA</option>
 					<option>Herren II</option>
 				</select>
@@ -31,6 +33,6 @@
 </div>
 <ul class="nav justify-content-center bg-dark fixed-bottom" style="font-size: 2rem; with: 100%;">
 	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/submenu_training_konfiguration';"><i class="fas fa-arrow-left"></i></button></li>
-	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="update();"><i class="far fa-edit"></i></button></li>
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="update();"><i class="far fa-save"></i></button></li>
 </ul>
 {% endblock %}

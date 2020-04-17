@@ -1,21 +1,23 @@
 function load_training() {
 	var training = $('#training').val();
-	if (training) {
-		frappe.call({
-			method: 'doppelpass.www.training_bearbeiten.get',
-			args: {
-				training: training
-			},
-			callback: function(r) {
-				if(r.message) {
-					var r = r.message;
-					$('#team').val(r.team);
-					$('#datum').val(r.datum);
-					$('#ort').val(r.ort);
-					$('#details').val(r.details);
-				} 
-			}
-		});
+	if (training != 'leer') {
+		if (training) {
+			frappe.call({
+				method: 'doppelpass.www.training_bearbeiten.get',
+				args: {
+					training: training
+				},
+				callback: function(r) {
+					if(r.message) {
+						var r = r.message;
+						$('#team').val(r.team);
+						$('#datum').val(r.datum);
+						$('#ort').val(r.ort);
+						$('#details').val(r.details);
+					} 
+				}
+			});
+		}
 	}
 }
 
