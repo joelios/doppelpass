@@ -1,3 +1,11 @@
+.page-card {
+	background-color: transparent !important;
+	color: white !important;
+}
+.page-card .btn {
+	background-color: transparent !important;
+	border-color: white !important;
+}
 .form-footer, .form-footer a, .form-footer h6 {
 	color: white !important;
 }

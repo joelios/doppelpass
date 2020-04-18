@@ -1,6 +1,7 @@
 {% extends "templates/web.html" %}
 {% block title %}Tabelle{% endblock %}
 {% block page_content %}
+<div class="container-fluid fixed-top" style="color: white; background-color: #47aff8" id="content">
 <table class="table table-striped" style="color: white; text-align: center; font-size: 12px;" id="tabelle">
 	<thead>
 		<tr>
@@ -25,6 +26,7 @@
 	{% endfor %}
 	</tbody>
 </table>
+</div>
 <ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: #47aff8">
 	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/submenu_swissunihockey';"><i class="fas fa-arrow-left"></i></button></li>
 </ul>
