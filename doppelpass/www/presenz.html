@@ -3,166 +3,76 @@
 {% block page_content %}
 <div class="container-fluid fixed-top" style="color: white; background-color: #47aff8">
 	<div class="row">
+		{% if event %}
 		<div class="col-xs-12">
 			<center><p style="font-size: 25px;">Heute</p></center>
 		</div>
 		<div class="col-xs-1"></div>
-		<div class="col-xs-10" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px;">
-			<div class="row">
+		<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid #bbbbbb; border-radius: 25px; padding: 3px;">
+			<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
+					<i class="far fa-calendar-alt"></i> {{ _(frappe.utils.get_datetime(event.start).strftime('%A')) }} {{ frappe.utils.get_datetime(event.start).strftime('%d') }} {{ _(frappe.utils.get_datetime(event.start).strftime('%B')) }} um {{ frappe.utils.get_datetime(event.start).strftime('%H:%M') }}
 				</div>
-				<div class="col-xs-2">
-					17
+				<div class="col-xs-2" style="text-align: right;">
+					{{ anzahl }}
 				</div>
 				<div class="col-xs-8">
-					<strong>Training</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
+					<strong>{{ event.typ }}</strong><br>
+					<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: #00ff00;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-times-circle"></i>
+				<div class="col-xs-3">
+					<div class="row" style="font-size: 30px;">
+						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;" onclick="anmelden('{{ event.name }}');"{% endif %}>
+							<i class="far fa-check-circle"></i>
+						</div>
+						<div class="col-xs-6" {% if not anwesend %}style="color: red;"{% else %}style="cursor: pointer;" onclick="abmelden('{{ anwesend }}');"{% endif %}>
+							<i class="far fa-times-circle"></i>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-1"></div>
+		{% endif %}
 		<div class="col-xs-12">
 			<center><p style="font-size: 25px;">Demnächst</p></center>
 		</div>
 	</div>
 </div>
-<div class="container-fluid" style="color: white; background-color: #47aff8; margin-top: 200px; margin-bottom: 65px;">
+<div class="container-fluid" style="color: white; background-color: #47aff8; {% if event %}margin-top: 205px; {% else %}margin-top: 55px; {% endif %}margin-bottom: 65px;">
 <div class="row">
+	{% for event in events_in_zukunft %}
+	{% set vars = {'details_zu_events_': event.name} %}
 	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Training</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: red;">
-					<i class="fas fa-times-circle"></i>
+	<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid #bbbbbb; border-radius: 25px; padding: 3px; margin-bottom: 5px;">
+		<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
+			<div class="col-xs-10">
+				<i class="far fa-calendar-alt"></i> {{ _(frappe.utils.get_datetime(event.start).strftime('%A')) }} {{ frappe.utils.get_datetime(event.start).strftime('%d') }} {{ _(frappe.utils.get_datetime(event.start).strftime('%B')) }} um {{ frappe.utils.get_datetime(event.start).strftime('%H:%M') }}
+			</div>
+			<div class="col-xs-2" style="text-align: right;">
+				{{ details_zu_events[vars.details_zu_events_].anzahl }}
+			</div>
+			<div class="col-xs-8">
+				<strong>{{ event.typ }}</strong><br>
+				<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
+			</div>
+			<div class="col-xs-3">
+				<div class="row" style="font-size: 30px;">
+					<div class="col-xs-6" {% if details_zu_events[vars.details_zu_events_].anwesend %}style="color: green;"{% else %}style="cursor: pointer;" onclick="anmelden('{{ event.name }}');"{% endif %}>
+						<i class="far fa-check-circle"></i>
+					</div>
+					<div class="col-xs-6" {% if not details_zu_events[vars.details_zu_events_].anwesend %}style="color: red;"{% else %}style="cursor: pointer;" onclick="abmelden('{{ details_zu_events[vars.details_zu_events_].anwesend }}');"{% endif %}>
+						<i class="far fa-times-circle"></i>
+					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 	<div class="col-xs-1"></div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 2px solid #DAA520; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Match</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: #00ff00;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-times-circle"></i>
-				</div>
-			</div>
-	</div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Training</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: #00ff00;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-times-circle"></i>
-				</div>
-			</div>
-	</div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Training</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: #00ff00;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-times-circle"></i>
-				</div>
-			</div>
-	</div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 2px solid #DAA520; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Match</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: red;">
-					<i class="fas fa-times-circle"></i>
-				</div>
-			</div>
-	</div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; margin: 3px 0 3px 0;">
-		<div class="row">
-				<div class="col-xs-10">
-					<i class="far fa-calendar-alt"></i> Mittwoch 22 April um 20:50
-				</div>
-				<div class="col-xs-2">
-					17
-				</div>
-				<div class="col-xs-8">
-					<strong>Training</strong><br><i class="fas fa-map-marker-alt"></i> Rennweg, Winterthur
-				</div>
-				<div class="col-xs-2" style="font-size: 30px; color: #00ff00;">
-					<i class="fas fa-check-circle"></i>
-				</div>
-				<div class="col-xs-2" style="font-size: 30px;">
-					<i class="fas fa-times-circle"></i>
-				</div>
-			</div>
-	</div>
-	<div class="col-xs-1"></div>
+	{% endfor %}
 </div>
 </div>
 <ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: #47aff8">
-	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/submenu_training';"><i class="fas fa-arrow-left"></i></button></li>
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/hauptmenu';"><i class="fas fa-arrow-left"></i></button></li>
 </ul>
 {% endblock %}

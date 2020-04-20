@@ -1,0 +1,102 @@
+{
+ "creation": "2020-04-19 19:11:21.851807",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "typ",
+  "start",
+  "dauer",
+  "ort",
+  "details",
+  "team",
+  "section_match",
+  "gegner",
+  "section_teilnehmer",
+  "anmeldungen"
+ ],
+ "fields": [
+  {
+   "fieldname": "typ",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Typ",
+   "options": "Training\nMatch\nEvent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Start",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dauer",
+   "fieldtype": "Int",
+   "label": "Dauer"
+  },
+  {
+   "fieldname": "ort",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ort",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Team",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_match",
+   "fieldtype": "Section Break",
+   "label": "Match"
+  },
+  {
+   "fieldname": "gegner",
+   "fieldtype": "Data",
+   "label": "Gegner"
+  },
+  {
+   "fieldname": "section_teilnehmer",
+   "fieldtype": "Section Break",
+   "label": "Teilnehmer"
+  },
+  {
+   "fieldname": "anmeldungen",
+   "fieldtype": "Table",
+   "label": "Teilnehmer",
+   "options": "Teilnehmer"
+  }
+ ],
+ "modified": "2020-04-19 21:22:52.638255",
+ "modified_by": "Administrator",
+ "module": "Doppelpass",
+ "name": "DP Event",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,3 +1,7 @@
+.col-xs-4 {
+	margin-left: 1px !important;
+	margin-right: 1px !important;
+}
 .page-card {
 	background-color: transparent !important;
 	color: white !important;

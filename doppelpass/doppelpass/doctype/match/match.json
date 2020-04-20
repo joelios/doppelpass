@@ -1,0 +1,75 @@
+{
+ "creation": "2020-04-19 10:06:43.479461",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "team",
+  "datum",
+  "anpfiff",
+  "ort",
+  "gegner",
+  "details"
+ ],
+ "fields": [
+  {
+   "fieldname": "team",
+   "fieldtype": "Data",
+   "label": "Team",
+   "reqd": 1
+  },
+  {
+   "fieldname": "datum",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Datum",
+   "reqd": 1
+  },
+  {
+   "fieldname": "anpfiff",
+   "fieldtype": "Time",
+   "label": "Anpfiff",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ort",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ort",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gegner",
+   "fieldtype": "Data",
+   "label": "Gegner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text",
+   "label": "Details"
+  }
+ ],
+ "modified": "2020-04-19 10:06:43.479461",
+ "modified_by": "Administrator",
+ "module": "Doppelpass",
+ "name": "Match",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

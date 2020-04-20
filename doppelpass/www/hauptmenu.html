@@ -2,53 +2,116 @@
 {% block title %}Hauptmenü{% endblock %}
 {% block page_content %}
 <div class="container-fluid fixed-top" style="color: white; background-color: #47aff8" id="content">
-	<img src="assets/doppelpass/images/doppelpass_logo_klein.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 15vh;">
+	<img src="assets/doppelpass/images/doppelpass_logo_klein.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh;">
+	<div class="row" style="margin-bottom: 30px;">
+		<div class="col-xs-12" style="font-size: 30px;">
+			<center>HC Rychenberg II</center>
+		</div>
+		{% if event %}
+		<div class="col-xs-12">
+			<center>Demnächst</center>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid #bbbbbb; border-radius: 25px; padding: 3px;">
+			<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
+				<div class="col-xs-10">
+					<i class="far fa-calendar-alt"></i> {{ _(frappe.utils.get_datetime(event.start).strftime('%A')) }} {{ frappe.utils.get_datetime(event.start).strftime('%d') }} {{ _(frappe.utils.get_datetime(event.start).strftime('%B')) }} um {{ frappe.utils.get_datetime(event.start).strftime('%H:%M') }}
+				</div>
+				<div class="col-xs-2" style="text-align: right;">
+					{{ anzahl }}
+				</div>
+				<div class="col-xs-8">
+					<strong>{{ event.typ }}</strong><br>
+					<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
+				</div>
+				<div class="col-xs-3">
+					<div class="row" style="font-size: 30px;">
+						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;" onclick="anmelden('{{ event.name }}');"{% endif %}>
+							<i class="far fa-check-circle"></i>
+						</div>
+						<div class="col-xs-6" {% if not anwesend %}style="color: red;"{% else %}style="cursor: pointer;" onclick="abmelden('{{ anwesend }}');"{% endif %}>
+							<i class="far fa-times-circle"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-1"></div>
+		{% endif %}
+	</div>
 	<div class="row">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_training';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/presenz';">
 			<center>
-				<i class="fas fa-running" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Training</p>
+				<i class="far fa-calendar-alt" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">&nbsp;Kalender</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_spielbetrieb';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_spielbetrieb';">
 			<center>
-				<i class="fas fa-trophy" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Spielbetrieb</p>
+				<i class="fas fa-trophy" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Spielbetrieb</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/hauptmenu';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
 			<center>
-				<i class="far fa-chart-bar" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Statistik</p>
+				<i class="fas fa-users" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;Team</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/hauptmenu';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
 			<center>
-				<i class="fas fa-dollar-sign" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Budget</p>
+				<i class="far fa-envelope" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Message Board</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer;" onclick="window.location='/submenu_konfiguration';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
 			<center>
-				<i class="fas fa-cogs" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Konfiguration</p>
+				<i class="fas fa-balance-scale" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Abstimmungen</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-3" style="background-color: #47aff8; border: 1px solid white; border-radius: 25px; padding: 18px; margin: 3px 0 3px 0; cursor: pointer; color: white;" onclick="window.location='/setup?cmd=web_logout';">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
 			<center>
-				<i class="fas fa-key" style="font-size: 40px;"></i>
-				<p style="font-size: 10px; margin-bottom: 0;">Logout</p>
+				<i class="fas fa-piggy-bank" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;Kasse</p>
 			</center>
 		</div>
-		<div class="col-xs-2"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
+			<center>
+				<i class="fas fa-chart-pie" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Statistik</p>
+			</center>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
+			<center>
+				<i class="far fa-chart-bar" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Bestenliste</p>
+			</center>
+		</div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1"></div>
+		<div class="col-xs-2" style="background-color: #47aff8; margin-top: 30px; /*border: 1px solid white;*/ border-radius: 25px; padding: 3px;/* margin: 3px 0 3px 0;*/ cursor: pointer;" onclick="window.location='/submenu_training';">
+			<center>
+				<i class="far fa-user-circle" style="font-size: 60px;"></i>
+				<p style="font-size: 13px; margin-bottom: 0;">Profil</p>
+			</center>
+		</div>
+		<div class="col-xs-1"></div>
 	</div>
 </div>
 {% endblock %}

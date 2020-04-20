@@ -631,3 +631,34 @@ function _removeToken () {
 window.addToHomescreen = ath;
 
 })(window, document);
+
+
+
+
+function abmelden(ref) {
+	frappe.call({
+		method: 'doppelpass.www.hauptmenu.abmelden',
+		args: {
+			ref: ref
+		},
+		callback: function(r) {
+			if(r.message) {
+				location.reload();
+			} 
+		}
+	});
+}
+
+function anmelden(_event) {
+	frappe.call({
+		method: 'doppelpass.www.hauptmenu.anmelden',
+		args: {
+			'event': _event
+		},
+		callback: function(r) {
+			if(r.message) {
+				location.reload();
+			} 
+		}
+	});
+}
