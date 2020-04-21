@@ -119,24 +119,3 @@
 	</div>
 </div>
 {% endblock %}
-{% block script %}
-	<script>
-	window.addEventListener('orientationchange', checkOrientation, false);
-	$( document ).ready(function() {
-		checkOrientation();
-	});
-	function checkOrientation() { 
-		opt1 = $('body').width();
-		opt2 = $(window).height();
-		if (opt1 < 1000) {
-			if (opt1 < opt2) {
-				$('#content').show();
-				$('#myModal').hide();
-			} else {
-				$('#content').hide();
-				$('#myModal').show();
-			}
-		}
-	} 
-	</script>
-{% endblock %}
