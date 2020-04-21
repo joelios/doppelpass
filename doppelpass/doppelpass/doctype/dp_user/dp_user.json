@@ -5,7 +5,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "user"
+  "user",
+  "fullname",
+  "nummer",
+  "position",
+  "captain",
+  "bild"
  ],
  "fields": [
   {
@@ -15,9 +20,40 @@
    "label": "User",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "fieldname": "nummer",
+   "fieldtype": "Int",
+   "label": "Nummer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Select",
+   "label": "Position",
+   "options": "Torwart\nVerteidiger\nCenter\nFl\u00fcgel",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "captain",
+   "fieldtype": "Check",
+   "label": "Captain"
+  },
+  {
+   "fieldname": "bild",
+   "fieldtype": "Attach Image",
+   "label": "Bild"
+  },
+  {
+   "fieldname": "fullname",
+   "fieldtype": "Data",
+   "label": "Fullname",
+   "reqd": 1
   }
  ],
- "modified": "2020-04-19 20:37:14.473671",
+ "image_field": "bild",
+ "modified": "2020-04-21 10:22:17.969399",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",

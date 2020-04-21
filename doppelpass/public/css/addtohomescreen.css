@@ -1,3 +1,9 @@
+.nav.nav-tabs .nav-link {
+	color: white;
+}
+.nav.nav-tabs .nav-link.active {
+	color: black;
+}
 .col-xs-4 {
 	margin-left: 1px !important;
 	margin-right: 1px !important;

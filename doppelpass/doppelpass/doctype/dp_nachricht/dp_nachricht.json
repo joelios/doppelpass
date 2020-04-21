@@ -1,0 +1,64 @@
+{
+ "creation": "2020-04-21 11:48:26.862660",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "datum",
+  "user",
+  "nachricht",
+  "pinned"
+ ],
+ "fields": [
+  {
+   "fieldname": "datum",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Datum",
+   "reqd": 1
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "DP User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nachricht",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Nachricht",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pinned",
+   "fieldtype": "Check",
+   "label": "Pinned"
+  }
+ ],
+ "modified": "2020-04-21 11:48:26.862660",
+ "modified_by": "Administrator",
+ "module": "Doppelpass",
+ "name": "DP Nachricht",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

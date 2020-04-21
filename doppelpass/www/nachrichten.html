@@ -1,0 +1,75 @@
+{% extends "templates/web.html" %}
+{% block title %}Team{% endblock %}
+{% block page_content %}
+<div class="container-fluid" id="to_hide_1" style="color: white; background-color: #47aff8;">
+	<div class="row">
+		<div class="col-xs-12" style="font-size: 30px; color:white;">
+			<center>Message Board</center>
+		</div>
+	</div>
+</div>
+<div class="container-fluid" id="to_hide_2" style="color: white; background-color: #47aff8; margin-bottom: 65px;">
+<div class="row">
+	{% for nachricht in pinned_nachrichten %}
+	<div class="col-xs-1"></div>
+	<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid {% if nachricht.pinned %}#FFD700;{% else %}#bbbbbb;{% endif %} border-radius: 25px; padding: 3px; margin-bottom: 5px;">
+		<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
+			<div class="col-xs-8">
+				<strong>{{ nachricht.fullname }}</strong>
+			</div>
+			<div class="col-xs-3">
+				{{ frappe.utils.get_datetime(nachricht.datum).strftime('%d.%m.%Y') }}
+			</div>
+			<div class="col-xs-12">
+				{{ nachricht.nachricht }}
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-1"></div>
+	{% endfor %}
+	{% for nachricht in nachrichten %}
+	<div class="col-xs-1"></div>
+	<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid {% if nachricht.pinned %}#FFD700;{% else %}#bbbbbb;{% endif %} border-radius: 25px; padding: 3px; margin-bottom: 5px;">
+		<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
+			<div class="col-xs-8">
+				<strong>{{ nachricht.fullname }}</strong>
+			</div>
+			<div class="col-xs-3">
+				{{ frappe.utils.get_datetime(nachricht.datum).strftime('%d.%m.%Y') }}
+			</div>
+			<div class="col-xs-12">
+				{{ nachricht.nachricht }}
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-1"></div>
+	{% endfor %}
+</div>
+</div>
+<ul class="nav justify-content-center fixed-bottom" id="to_hide_3" style="font-size: 2rem; with: 100%; background-color: #47aff8">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/hauptmenu';"><i class="fas fa-arrow-left"></i></button></li>
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="toggle_hidden();"><i class="fas fa-plus"></i></button></li>
+</ul>
+
+
+
+
+
+
+
+<div class="container-fluid fixed-top hidden" id="to_show_1" style="color: white; background-color: #47aff8">
+	<div class="row">
+		<div class="col-xs-12">
+			<center><p style="font-size: 50px;">Erfassen</p></center>
+			<div class="form-group" id="edit_area">
+				<label for="details">Nachricht:</label>
+				<textarea class="form-control" rows="5" id="details"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+<ul class="nav justify-content-center fixed-bottom hidden" id="to_show_2" style="font-size: 2rem; with: 100%; background-color: #47aff8;">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="toggle_hidden();"><i class="far fa-trash-alt"></i></button></li>
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="nachricht_speichern();"><i class="far fa-save"></i></button></li>
+</ul>
+{% endblock %}

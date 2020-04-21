@@ -8,12 +8,12 @@
 			<center><p style="font-size: 25px;">Heute</p></center>
 		</div>
 		<div class="col-xs-1"></div>
-		<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid #bbbbbb; border-radius: 25px; padding: 3px;">
+		<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid {% if event.typ == 'Match' %}#FFD700{% else %}#bbbbbb{% endif %}; border-radius: 25px; padding: 3px;">
 			<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 				<div class="col-xs-10">
 					<i class="far fa-calendar-alt"></i> {{ _(frappe.utils.get_datetime(event.start).strftime('%A')) }} {{ frappe.utils.get_datetime(event.start).strftime('%d') }} {{ _(frappe.utils.get_datetime(event.start).strftime('%B')) }} um {{ frappe.utils.get_datetime(event.start).strftime('%H:%M') }}
 				</div>
-				<div class="col-xs-2" style="text-align: right;">
+				<div class="col-xs-2" style="text-align: right; color: #FFD700;">
 					{{ anzahl }}
 				</div>
 				<div class="col-xs-8">
@@ -44,16 +44,16 @@
 	{% for event in events_in_zukunft %}
 	{% set vars = {'details_zu_events_': event.name} %}
 	<div class="col-xs-1"></div>
-	<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid #bbbbbb; border-radius: 25px; padding: 3px; margin-bottom: 5px;">
+	<div class="col-xs-10" style="background-color: #3c5c73; border: 5px solid {% if event.typ == 'Match' %}#FFD700{% else %}#bbbbbb{% endif %}; border-radius: 25px; padding: 3px; margin-bottom: 5px;">
 		<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 			<div class="col-xs-10">
 				<i class="far fa-calendar-alt"></i> {{ _(frappe.utils.get_datetime(event.start).strftime('%A')) }} {{ frappe.utils.get_datetime(event.start).strftime('%d') }} {{ _(frappe.utils.get_datetime(event.start).strftime('%B')) }} um {{ frappe.utils.get_datetime(event.start).strftime('%H:%M') }}
 			</div>
-			<div class="col-xs-2" style="text-align: right;">
+			<div class="col-xs-2" style="text-align: right; color: #FFD700;">
 				{{ details_zu_events[vars.details_zu_events_].anzahl }}
 			</div>
 			<div class="col-xs-8">
-				<strong>{{ event.typ }}</strong><br>
+				<strong>{% if event.typ == 'Match' %}{{ event.gegner }}{% else %}{{ event.typ }}{% endif %}</strong><br>
 				<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 			</div>
 			<div class="col-xs-3">
