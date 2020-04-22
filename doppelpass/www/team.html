@@ -19,7 +19,11 @@
 				{{ user.nummer }} {% if user.captain %}C {% endif %}{{ user.position }}
 			</div>
 			<div class="col-xs-3">
+				{% if user.bild %}
 				<img src="{{ user.bild }}" class="rounded">
+				{% else %}
+				<img src="assets/doppelpass/images/user.png" class="rounded">
+				{% endif %}
 			</div>
 		</div>
 	</div>
