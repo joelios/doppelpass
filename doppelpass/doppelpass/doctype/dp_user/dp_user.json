@@ -10,7 +10,9 @@
   "nummer",
   "position",
   "captain",
-  "bild"
+  "bild",
+  "tore",
+  "assists"
  ],
  "fields": [
   {
@@ -50,10 +52,24 @@
    "fieldtype": "Data",
    "label": "Fullname",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tore",
+   "fieldtype": "Int",
+   "label": "Tore",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "assists",
+   "fieldtype": "Int",
+   "label": "Assists",
+   "reqd": 1
   }
  ],
  "image_field": "bild",
- "modified": "2020-04-21 10:22:17.969399",
+ "modified": "2020-04-22 12:49:41.805447",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",
