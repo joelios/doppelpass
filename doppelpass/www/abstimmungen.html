@@ -37,6 +37,9 @@
 			</div>
 		</div>
 		{% endfor %}
+		{% if not offen %}
+		<center style="color:white;">Es sind keine offenen Abstimmungen vorhanden.</center>
+		{% endif %}
 	</div>
 	<div class="tab-pane container fade" id="beendet" style="padding-left: 0px; padding-right: 0px;">
 		{% for abstimmung in beendet %}
@@ -62,6 +65,9 @@
 			</div>
 		</div>
 		{% endfor %}
+		{% if not beendet %}
+		<center style="color:white;">Es sind keine beendete Abstimmungen vorhanden.</center>
+		{% endif %}
 	</div>
 </div>
 <ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: #47aff8">
