@@ -16,7 +16,7 @@
 		<div class="row" style="padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 			<div class="col-xs-8">
 				<strong>{{ user.fullname }}</strong><br>
-				{{ user.nummer }}, {% if user.captain %}C, {% endif %}{{ user.position }}
+				{{ user.nummer }} {% if user.captain %}C {% endif %}{{ user.position }}
 			</div>
 			<div class="col-xs-3">
 				<img src="{{ user.bild }}" class="rounded">
