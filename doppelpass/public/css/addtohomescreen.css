@@ -1,3 +1,6 @@
+.chart-container .legend-dataset-text {
+    fill: white !important;
+}
 .nav.nav-tabs .nav-link {
 	color: white;
 }
