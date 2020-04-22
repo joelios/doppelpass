@@ -54,7 +54,6 @@
 		<script type="text/javascript" src="/assets/js/frappe-web.min.js"></script>
 		<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
 		<script type="text/javascript" src="/assets/doppelpass/js/addtohomescreen.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
 	{% endblock %}
 
 	{%- for link in web_include_js %}
@@ -62,13 +61,13 @@
 	{%- endfor -%}
 	{% block script %}{% endblock %}
 	<script>
-		/*if (
+		if (
 			(("standalone" in window.navigator) && !window.navigator.standalone)
 			||
 			( !window.matchMedia('(display-mode: standalone)').matches )
 		) {
 			addToHomescreen();
-		}*/
+		}
 	</script>
 	<script>
 	window.addEventListener('orientationchange', checkOrientation, false);
