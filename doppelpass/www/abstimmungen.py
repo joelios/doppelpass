@@ -13,6 +13,10 @@ def get_context(context):
 	if frappe.session.user=='Guest':
 		frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
 	
+	user = frappe.get_doc("DP User", frappe.session.user)
+	context["primar_bg"] = user.primar_bg
+	context["sekundaer_bg"] = user.sekundaer_bg
+	
 	context["offen"] = frappe.db.sql("""SELECT * FROM `tabDP Abstimmung` WHERE `ende` > '{nowdate}' ORDER BY `ende` ASC""".format(nowdate=nowdate()), as_dict=True)
 	
 	context["auswahl"] = {}

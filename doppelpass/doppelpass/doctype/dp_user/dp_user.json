@@ -12,7 +12,9 @@
   "captain",
   "bild",
   "tore",
-  "assists"
+  "assists",
+  "primar_bg",
+  "sekundaer_bg"
  ],
  "fields": [
   {
@@ -66,10 +68,24 @@
    "fieldtype": "Int",
    "label": "Assists",
    "reqd": 1
+  },
+  {
+   "default": "#47aff8",
+   "fieldname": "primar_bg",
+   "fieldtype": "Data",
+   "label": "Prim\u00e4r BG",
+   "reqd": 1
+  },
+  {
+   "default": "#3c5c73",
+   "fieldname": "sekundaer_bg",
+   "fieldtype": "Data",
+   "label": "Sekund\u00e4r BG",
+   "reqd": 1
   }
  ],
  "image_field": "bild",
- "modified": "2020-04-22 12:49:41.805447",
+ "modified": "2020-04-24 12:34:56.804306",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",

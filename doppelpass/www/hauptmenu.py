@@ -13,6 +13,10 @@ def get_context(context):
 	if frappe.session.user=='Guest':
 		frappe.throw(_("You need to be logged in to access this page"), frappe.PermissionError)
 	
+	user = frappe.get_doc("DP User", frappe.session.user)
+	context["primar_bg"] = user.primar_bg
+	context["sekundaer_bg"] = user.sekundaer_bg
+	
 	try:
 		context["event"] = frappe.db.sql("""SELECT
 												`tabDP Event`.`typ`,
