@@ -36,6 +36,15 @@ def get_context(context):
 	except:
 		context["event"] = None
 		context["anwesend"] = False
+		
+	try:
+		ungelesene_nachrichten = int(frappe.db.sql("""SELECT COUNT(`name`) FROM `tabDP Gelesen` WHERE `user` = '{user}'""".format(user=frappe.session.user), as_list=True)[0][0])
+		if ungelesene_nachrichten > 0:
+			context["ungelesene_nachrichten"] = True
+		else:
+			context["ungelesene_nachrichten"] = False
+	except:
+		context["ungelesene_nachrichten"] = False
 	
 	return context
 	

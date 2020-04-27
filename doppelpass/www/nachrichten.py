@@ -41,6 +41,11 @@ def get_context(context):
 											WHERE `tabDP Nachricht`.`pinned` = 1
 											ORDER BY `tabDP Nachricht`.`datum` DESC""", as_dict=True)
 	
+	# mark all msg as read
+	ungelesene_nachrichten = frappe.db.sql("""SELECT `name` FROM `tabDP Gelesen` WHERE `user` = '{user}'""".format(user=frappe.session.user), as_dict=True)
+	for ungelesene_nachricht in ungelesene_nachrichten:
+		frappe.db.sql("""DELETE FROM `tabDP Gelesen` WHERE `name` = '{name}'""".format(name=ungelesene_nachricht.name), as_list=True)
+		frappe.db.commit()
 	return context
 	
 @frappe.whitelist()

@@ -7,7 +7,8 @@
   "datum",
   "user",
   "nachricht",
-  "pinned"
+  "pinned",
+  "ungelesen"
  ],
  "fields": [
   {
@@ -37,9 +38,15 @@
    "fieldname": "pinned",
    "fieldtype": "Check",
    "label": "Pinned"
+  },
+  {
+   "fieldname": "ungelesen",
+   "fieldtype": "Table",
+   "label": "Ungelesen von",
+   "options": "DP Gelesen"
   }
  ],
- "modified": "2020-04-21 11:48:26.862660",
+ "modified": "2020-04-27 12:49:27.615619",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP Nachricht",
