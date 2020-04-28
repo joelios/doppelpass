@@ -29,7 +29,6 @@
   {
    "fieldname": "nachricht",
    "fieldtype": "Text",
-   "in_list_view": 1,
    "label": "Nachricht",
    "reqd": 1
   },
@@ -37,6 +36,7 @@
    "default": "0",
    "fieldname": "pinned",
    "fieldtype": "Check",
+   "in_list_view": 1,
    "label": "Pinned"
   },
   {
@@ -46,7 +46,7 @@
    "options": "DP Gelesen"
   }
  ],
- "modified": "2020-04-27 12:49:27.615619",
+ "modified": "2020-04-28 10:50:09.453843",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP Nachricht",

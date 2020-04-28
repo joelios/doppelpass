@@ -7,8 +7,8 @@ def get_data():
 		{
 			"module_name": "Doppelpass",
 			"color": "grey",
-			"icon": "octicon octicon-file-directory",
+			"icon": "fa fa-sitemap",
 			"type": "module",
-			"label": _("Doppelpass")
+			"label": _("TeamPlaner")
 		}
 	]

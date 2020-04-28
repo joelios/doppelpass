@@ -85,7 +85,7 @@
   }
  ],
  "image_field": "bild",
- "modified": "2020-04-24 12:34:56.804306",
+ "modified": "2020-04-28 10:47:34.261377",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",
@@ -107,5 +107,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "fullname",
  "track_changes": 1
 }

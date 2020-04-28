@@ -21,7 +21,6 @@
   {
    "fieldname": "info",
    "fieldtype": "Text",
-   "in_list_view": 1,
    "label": "Info",
    "reqd": 1
   },
@@ -34,6 +33,7 @@
   {
    "fieldname": "ende",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Ende",
    "reqd": 1
   },
@@ -44,7 +44,7 @@
    "options": "DP Abstimmung Antworten"
   }
  ],
- "modified": "2020-04-21 14:37:39.188952",
+ "modified": "2020-04-28 10:49:08.244811",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP Abstimmung",
@@ -65,5 +65,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "title_field": "betreff",
  "track_changes": 1
 }
