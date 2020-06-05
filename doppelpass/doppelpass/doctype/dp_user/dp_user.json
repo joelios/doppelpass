@@ -14,7 +14,13 @@
   "tore",
   "assists",
   "primar_bg",
-  "sekundaer_bg"
+  "sekundaer_bg",
+  "section_informationen",
+  "geburtsdatum",
+  "strasse",
+  "plz",
+  "ort",
+  "telefon"
  ],
  "fields": [
   {
@@ -82,10 +88,40 @@
    "fieldtype": "Data",
    "label": "Sekund\u00e4r BG",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_informationen",
+   "fieldtype": "Section Break",
+   "label": "Informationen"
+  },
+  {
+   "fieldname": "geburtsdatum",
+   "fieldtype": "Date",
+   "label": "Geburtsdatum"
+  },
+  {
+   "fieldname": "strasse",
+   "fieldtype": "Data",
+   "label": "Strasse"
+  },
+  {
+   "fieldname": "plz",
+   "fieldtype": "Int",
+   "label": "PLZ"
+  },
+  {
+   "fieldname": "ort",
+   "fieldtype": "Data",
+   "label": "Ort"
+  },
+  {
+   "fieldname": "telefon",
+   "fieldtype": "Data",
+   "label": "Telefon"
   }
  ],
  "image_field": "bild",
- "modified": "2020-04-28 10:47:34.261377",
+ "modified": "2020-06-05 14:31:43.380436",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",
