@@ -16,6 +16,11 @@ def get_context(context):
 	context["user"] = frappe.get_doc("DP User", frappe.session.user)
 	context["primar_bg"] = context["user"].primar_bg
 	context["sekundaer_bg"] = context["user"].sekundaer_bg
+	context["strasse"] = context["user"].strasse
+	context["ort"] = context["user"].ort
+	context["geburtsdatum"] = context["user"].geburtsdatum
+	context["telefon"] = context["user"].telefon
+	context["plz"] = context["user"].plz
 	
 	return context
 	

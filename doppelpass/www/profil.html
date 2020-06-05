@@ -20,7 +20,13 @@
 			<center>
 				{{ user.fullname }}<br>
 				{{ user.nummer }}<br>
-				{{ user.position }}<br><br>
+				{{ user.position }}<br>
+				<p style="font-size: small;">
+					{% if user.geburtsdatum %}{{ user.geburtsdatum }}{% else %}Kein Geburtsdatum{% endif %}<br>
+					{% if user.strasse %}{{ user.strasse }}{% else %}Keine Strasse{% endif %}<br>
+					{% if user.plz > 0 %}{{ user.plz }} {% endif %}{% if user.ort %}{{ user.ort }}{% else %}Kein Ort{% endif %}<br>
+					{% if user.telefon %}{{ user.telefon }}{% else %}Keine Telefon-Nummer{% endif %}
+				</p>
 			</center>
 		</div>
 		<div class="col-xs-2"></div>
