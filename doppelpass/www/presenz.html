@@ -16,8 +16,10 @@
 				<div class="col-xs-2" style="text-align: right; color: #FFD700;">
 					{{ anzahl }}
 				</div>
-				<div class="col-xs-8">
+				<div class="col-xs-8" style="word-wrap: break-word;">
 					<strong>{{ event.typ }}</strong><br>
+					{% if event.typ == 'Match' %}{{ event.gegner }}<br>{% endif %}
+					{% if event.details %}{{ event.details }}<br>{% endif %}
 					<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 				</div>
 				<div class="col-xs-3">
@@ -40,6 +42,20 @@
 	</div>
 </div>
 <div class="container-fluid" style="color: white; background-color: {{ primar_bg }}; {% if event %}margin-top: 205px; {% else %}margin-top: 55px; {% endif %}margin-bottom: 65px;">
+{% if event %}
+<div class="row">
+<div class="col-xs-1"></div>
+<div class="col-xs-10">
+	<div class="col-xs-10"></div>
+	<div class="col-xs-2"></div>
+	<div class="col-xs-8" style="word-wrap: break-word;">
+		{% if event.details %}{{ event.details }}<br>{% endif %}{% if event.typ == 'Match' %}<br>{% endif %}
+	</div>
+	<div class="col-xs-3"></div>
+</div>
+<div class="col-xs-1"></div>
+</div>
+{% endif %}
 <div class="row">
 	{% for event in events_in_zukunft %}
 	{% set vars = {'details_zu_events_': event.name} %}
@@ -52,8 +68,9 @@
 			<div class="col-xs-2" style="text-align: right; color: #FFD700;">
 				{{ details_zu_events[vars.details_zu_events_].anzahl }}
 			</div>
-			<div class="col-xs-8">
+			<div class="col-xs-8" style="word-wrap: break-word;">
 				<strong>{% if event.typ == 'Match' %}{{ event.gegner }}{% else %}{{ event.typ }}{% endif %}</strong><br>
+				{% if event.details %}{{ event.details }}<br>{% endif %}
 				<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 			</div>
 			<div class="col-xs-3">

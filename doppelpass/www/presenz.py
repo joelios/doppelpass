@@ -24,7 +24,8 @@ def get_context(context):
 												`tabDP Event`.`start`,
 												`tabDP Event`.`ort`,
 												`tabDP Event`.`name`,
-												`tabDP Event`.`gegner`
+												`tabDP Event`.`gegner`,
+												`tabDP Event`.`details`
 											FROM `tabDP Event`
 											WHERE DATE(`start`) = '{nowdate}'
 											ORDER BY `start` ASC
@@ -45,7 +46,8 @@ def get_context(context):
 													`tabDP Event`.`start`,
 													`tabDP Event`.`ort`,
 													`tabDP Event`.`name`,
-												`tabDP Event`.`gegner`
+													`tabDP Event`.`gegner`,
+													`tabDP Event`.`details`
 												FROM `tabDP Event`
 												WHERE DATE(`start`) > '{nowdate}'
 												ORDER BY `start` ASC""".format(nowdate=nowdate()), as_dict=True)
