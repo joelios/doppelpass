@@ -17,7 +17,7 @@
 					{{ anzahl }}
 				</div>
 				<div class="col-xs-8" style="word-wrap: break-word;">
-					<strong>{{ event.typ }}</strong><br>
+					<strong>{{ event.typ }} <i class="far fa-address-book" onclick="show_teilnehmer('{{ event.name }}');"></i></strong><br>
 					{% if event.typ == 'Match' %}{{ event.gegner }}<br>{% endif %}
 					{% if event.details %}{{ event.details }}<br>{% endif %}
 					<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
@@ -69,7 +69,7 @@
 				{{ details_zu_events[vars.details_zu_events_].anzahl }}
 			</div>
 			<div class="col-xs-8" style="word-wrap: break-word;">
-				<strong>{% if event.typ == 'Match' %}{{ event.gegner }}{% else %}{{ event.typ }}{% endif %}</strong><br>
+				<strong>{% if event.typ == 'Match' %}{{ event.gegner }}{% else %}{{ event.typ }}{% endif %} <i class="far fa-address-book" onclick="show_teilnehmer('{{ event.name }}');"></i></strong><br>
 				{% if event.details %}{{ event.details }}<br>{% endif %}
 				<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 			</div>

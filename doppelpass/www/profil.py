@@ -23,15 +23,3 @@ def get_context(context):
 	context["plz"] = context["user"].plz
 	
 	return context
-	
-@frappe.whitelist()
-def primebackground_change(color):
-	frappe.db.sql("""UPDATE `tabDP User` SET `primar_bg` = '{color}' WHERE `name` = '{user}'""".format(color=color, user=frappe.session.user), as_list=True)
-	frappe.db.commit()
-	return 'ok'
-	
-@frappe.whitelist()
-def secbackground_change(color):
-	frappe.db.sql("""UPDATE `tabDP User` SET `sekundaer_bg` = '{color}' WHERE `name` = '{user}'""".format(color=color, user=frappe.session.user), as_list=True)
-	frappe.db.commit()
-	return 'ok'

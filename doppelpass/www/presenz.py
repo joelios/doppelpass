@@ -62,3 +62,12 @@ def get_context(context):
 				context["details_zu_events"][_event.name]["anwesend"] = teilnehmer.name
 	
 	return context
+	
+@frappe.whitelist()
+def show_teilnehmer(event):
+	event = frappe.get_doc("DP Event", event)
+	anmeldungen = []
+	for anmeldung in event.anmeldungen:
+		user = frappe.get_doc("DP User", anmeldung.user)
+		anmeldungen.append([user.fullname, user.position])
+	return anmeldungen

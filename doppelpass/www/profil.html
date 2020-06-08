@@ -31,27 +31,6 @@
 		</div>
 		<div class="col-xs-2"></div>
 		<div class="col-xs-2"></div>
-		<div class="col-xs-8" style="color:white;">
-			<center>
-				<form>
-					<label for="pimebackgroundcolor">Wähle Deine primäre Hintergrundfarbe:</label>
-					<input type="color" id="pimebackgroundcolor" name="pimebackgroundcolor" value="{{ primar_bg }}" onchange="primebackground_change();">
-				</form>
-				<form>
-					<label for="secbackgroundcolor">Wähle Deine sekundäre Hintergrundfarbe:</label>
-					<input type="color" id="secbackgroundcolor" name="secbackgroundcolor" value="{{ sekundaer_bg }}" onchange="secbackground_change();">
-				</form>
-				<center>
-					<button class="btn" style="color: white;" onclick="reset_colors();">
-						<center>
-							Farben zurücksetzen
-						</center>
-					</button>
-				</center><br><br>
-			</center>
-		</div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-2"></div>
 		<div class="col-xs-8" style="font-size: 30px; color:white;">
 			<center>
 				<button class="btn" style="color: white;" onclick="window.location='https://github.com/joelios/doppelpass/issues/new';">
@@ -79,5 +58,6 @@
 </div>
 <ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: {{ primar_bg }}">
 	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/me';"><i class="fas fa-arrow-left"></i></button></li>
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/profil_settings';"><i class="fas fa-user-cog"></i></button></li>
 </ul>
 {% endblock %}

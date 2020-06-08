@@ -16,6 +16,7 @@ def get_context(context):
 	user = frappe.get_doc("DP User", frappe.session.user)
 	context["primar_bg"] = user.primar_bg
 	context["sekundaer_bg"] = user.sekundaer_bg
+	context["team_ansicht"] = user.team_ansicht
 	
 	context["users"] = frappe.db.sql("""SELECT * FROM `tabDP User` ORDER BY `fullname` ASC""", as_dict=True)
 	

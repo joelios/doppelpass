@@ -11,16 +11,19 @@
   "position",
   "captain",
   "bild",
-  "tore",
-  "assists",
-  "primar_bg",
-  "sekundaer_bg",
   "section_informationen",
   "geburtsdatum",
   "strasse",
   "plz",
   "ort",
-  "telefon"
+  "telefon",
+  "section_tatistik",
+  "tore",
+  "assists",
+  "section_einstellungen",
+  "primar_bg",
+  "sekundaer_bg",
+  "team_ansicht"
  ],
  "fields": [
   {
@@ -118,10 +121,27 @@
    "fieldname": "telefon",
    "fieldtype": "Data",
    "label": "Telefon"
+  },
+  {
+   "fieldname": "section_tatistik",
+   "fieldtype": "Section Break",
+   "label": "Statistik"
+  },
+  {
+   "fieldname": "section_einstellungen",
+   "fieldtype": "Section Break",
+   "label": "Einstellungen"
+  },
+  {
+   "default": "Einfach",
+   "fieldname": "team_ansicht",
+   "fieldtype": "Select",
+   "label": "Team Ansicht",
+   "options": "Einfach\nDetailiert"
   }
  ],
  "image_field": "bild",
- "modified": "2020-06-05 14:31:43.380436",
+ "modified": "2020-06-08 12:31:32.783059",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",
@@ -141,6 +161,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "fullname",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "fullname",

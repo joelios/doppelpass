@@ -1,0 +1,48 @@
+{% extends "templates/web.html" %}
+{% block title %}Profil Einstellungen{% endblock %}
+{% block page_content %}
+<div class="container-fluid" style="color: white; background-color: {{ primar_bg }}; margin-bottom: 70px;">
+	<div class="row">
+		<div class="col-xs-12" style="font-size: 30px; color:white;">
+			<center>Profil Einstellungen</center>
+		</div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8" style="color:white;">
+			<center>
+				<form>
+					<label for="pimebackgroundcolor">Wähle Deine primäre Hintergrundfarbe:</label>
+					<input type="color" id="pimebackgroundcolor" name="pimebackgroundcolor" value="{{ primar_bg }}" onchange="primebackground_change();">
+				</form>
+				<form>
+					<label for="secbackgroundcolor">Wähle Deine sekundäre Hintergrundfarbe:</label>
+					<input type="color" id="secbackgroundcolor" name="secbackgroundcolor" value="{{ sekundaer_bg }}" onchange="secbackground_change();">
+				</form>
+				<center>
+					<button class="btn" style="color: white;" onclick="reset_colors();">
+						<center>
+							<b>Farben zurücksetzen</b>
+						</center>
+					</button>
+				</center><br><br>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8" style="color:white;">
+			<center>
+				<form>
+					<label for="team_ansicht">Wähle die Standardansicht der Team-Liste:</label>
+					<select class="form-control" id="team_ansicht" value="{{ team_ansicht }}" onchange="team_ansicht_change();">
+						<option value='Einfach' {% if team_ansicht == 'Einfach' %}selected{% endif %}>Einfach</option>
+						<option value='Detailiert' {% if team_ansicht == 'Detailiert' %}selected{% endif %}>Detailiert</option>
+					</select>
+				</form>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+</div>
+<ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: {{ primar_bg }}">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/profil';"><i class="fas fa-arrow-left"></i></button></li>
+</ul>
+{% endblock %}

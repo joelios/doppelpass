@@ -1,4 +1,4 @@
-function primebackground_change() {
+/* function primebackground_change() {
 	new_bg = $('#pimebackgroundcolor').val();
 	if ((!new_bg)) {
 		frappe.msgprint("Bitte tragen Sie eine Farbe ein!", "Fehlende Angaben");
@@ -62,4 +62,4 @@ function reset_colors() {
 				} 
 			}
 		});
-}
+} */
