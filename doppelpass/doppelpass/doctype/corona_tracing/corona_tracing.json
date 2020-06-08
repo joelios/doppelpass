@@ -1,0 +1,57 @@
+{
+ "creation": "2020-06-08 14:54:37.842554",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "datum",
+  "spieler",
+  "empfaenger"
+ ],
+ "fields": [
+  {
+   "fieldname": "datum",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Datum",
+   "reqd": 1
+  },
+  {
+   "fieldname": "spieler",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spieler",
+   "options": "DP User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "empfaenger",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Empfaenger",
+   "options": "DP User",
+   "reqd": 1
+  }
+ ],
+ "modified": "2020-06-08 14:54:37.842554",
+ "modified_by": "Administrator",
+ "module": "Doppelpass",
+ "name": "Corona Tracing",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,32 @@
+{% extends "templates/web.html" %}
+{% block title %}Corona Tracing{% endblock %}
+{% block page_content %}
+<div class="container-fluid" style="color: white; background-color: {{ primar_bg }}; margin-bottom: 70px;">
+	<div class="row">
+		<div class="col-xs-12" style="font-size: 30px; color:white;">
+			<center>Corona Tracing</center>
+		</div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8" style="color:white;">
+			<center>
+				<form>
+					<label for="datum">Stichtag:</label>
+					<input type="date" class="form-control" id="datum">
+					<label for="spieler">Infizierter Spieler:</label>
+					<select class="form-control" id="spieler">
+						<option value='leer'>Bitte wählen Sie einen Spieler aus</option>
+						{% for user in users %}
+						<option value='{{ user.name }}'>{{ user.fullname }}</option>
+						{% endfor %}
+					</select>
+				</form>
+				<br><br><p onclick="get_corona_tracing();"><i class="fas fa-file-download"></i> Download Covid-19 Tracing File</p>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+</div>
+<ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: {{ primar_bg }}">
+	<li><button class="btn" style="color: white; font-size: 2rem;" onclick="window.location='/me';"><i class="fas fa-arrow-left"></i></button></li>
+</ul>
+{% endblock %}

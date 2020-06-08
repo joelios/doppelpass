@@ -657,6 +657,7 @@ function anmelden(_event) {
 		},
 		callback: function(r) {
 			if(r.message) {
+				localStorage.clear();
 				location.reload();
 			} 
 		}
