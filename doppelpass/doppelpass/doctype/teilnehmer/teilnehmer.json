@@ -4,6 +4,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "fullname",
   "user"
  ],
  "fields": [
@@ -14,10 +15,17 @@
    "label": "User",
    "options": "DP User",
    "reqd": 1
+  },
+  {
+   "fetch_from": "user.fullname",
+   "fieldname": "fullname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
   }
  ],
  "istable": 1,
- "modified": "2020-04-19 21:07:56.813867",
+ "modified": "2020-06-18 09:12:30.448701",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "Teilnehmer",
