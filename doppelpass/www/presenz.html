@@ -24,10 +24,10 @@
 				</div>
 				<div class="col-xs-3">
 					<div class="row" style="font-size: 30px;">
-						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;" onclick="anmelden('{{ event.name }}');"{% endif %}>
+						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;"{% endif %}>
 							<i class="far fa-check-circle"></i>
 						</div>
-						<div class="col-xs-6" {% if not anwesend %}style="color: red;"{% else %}style="cursor: pointer;" onclick="abmelden('{{ anwesend }}');"{% endif %}>
+						<div class="col-xs-6" {% if not anwesend %}style="color: red;"{% else %}style="cursor: pointer;"{% endif %}>
 							<i class="far fa-times-circle"></i>
 						</div>
 					</div>

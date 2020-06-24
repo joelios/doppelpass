@@ -13,7 +13,8 @@ function show_teilnehmer(event) {
 					nachricht += '<tr><td>' + r.message[i][0] + '</td><td>' + r.message[i][1] + '</td></tr>';
 				}
 				nachricht += '</tbody></table>';
-				frappe.msgprint(nachricht, 'Anmeldungen Event <div class="pull-right"><i class="fas fa-times" onclick="location.reload();"></i></div>');
+				frappe.msgprint(nachricht, 'Anmeldungen Event');
+				//frappe.msgprint(nachricht, 'Anmeldungen Event <div class="pull-right"><i class="fas fa-times" onclick="location.reload();"></i></div>');
 			} 
 		}
 	});
