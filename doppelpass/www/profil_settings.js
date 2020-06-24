@@ -84,3 +84,28 @@ function team_ansicht_change() {
 		});
 	}
 }
+
+function update_kontakt() {
+	var fullname = $('#fullname').val();
+	var plz = $('#plz').val();
+	var telefon = $('#telefon').val();
+	var geburtsdatum = $('#geburtsdatum').val();
+	var ort = $('#ort').val();
+	var strasse =$('#strasse').val();
+	frappe.call({
+		method: 'doppelpass.www.profil_settings.update_kontakt',
+		args: {
+			fullname: fullname,
+			plz: plz,
+			telefon: telefon,
+			geburtsdatum: geburtsdatum,
+			ort: ort,
+			strasse: strasse
+		},
+		callback: function(r) {
+			if(r.message) {
+				location.reload();
+			} 
+		}
+	});
+}

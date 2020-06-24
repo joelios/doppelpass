@@ -40,6 +40,27 @@
 			</center>
 		</div>
 		<div class="col-xs-2"></div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-8" style="color:white;">
+			<center>
+				<form>
+					<label for="fullname">Name:</label>
+					<input type="text" class="form-control" id="fullname" value="{{ fullname }}">
+					<label for="plz">PLZ:</label>
+					<input type="text" class="form-control" id="plz" value="{{ plz }}">
+					<label for="ort">Ort:</label>
+					<input type="text" class="form-control" id="ort" value="{{ ort }}">
+					<label for="strasse">Strasse:</label>
+					<input type="text" class="form-control" id="strasse" value="{{ strasse }}">
+					<label for="telefon">Telefon:</label>
+					<input type="text" class="form-control" id="telefon" value="{{ telefon }}">
+					<label for="geburtsdatum">Geburtsdatum:</label>
+					<input type="date" class="form-control" id="geburtsdatum" value="{{ geburtsdatum }}">
+				</form>
+				<button class="btn" style="color: white; font-size: 2rem;" onclick="update_kontakt();"><i class="far fa-save"></i></button>
+			</center>
+		</div>
+		<div class="col-xs-2"></div>
 	</div>
 </div>
 <ul class="nav justify-content-center fixed-bottom" style="font-size: 2rem; with: 100%; background-color: {{ primar_bg }}">
