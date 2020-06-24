@@ -25,6 +25,8 @@
 					<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 				</div>
 				<div class="col-xs-3">
+				
+				{% if frappe.utils.get_datetime(frappe.utils.now()).strftime('%d.%m.%Y') != frappe.utils.get_datetime(event.start).strftime('%d.%m.%Y') %}
 					<div class="row" style="font-size: 30px;">
 						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;" onclick="anmelden('{{ event.name }}');"{% endif %}>
 							<i class="far fa-check-circle"></i>
@@ -33,6 +35,16 @@
 							<i class="far fa-times-circle"></i>
 						</div>
 					</div>
+				{% else %}
+					<div class="row" style="font-size: 30px;">
+						<div class="col-xs-6" {% if anwesend %}style="color: green;"{% else %}style="cursor: pointer;"{% endif %}>
+							<i class="far fa-check-circle"></i>
+						</div>
+						<div class="col-xs-6" {% if not anwesend %}style="color: red;"{% else %}style="cursor: pointer;"{% endif %}>
+							<i class="far fa-times-circle"></i>
+						</div>
+					</div>
+				{% endif %}
 				</div>
 			</div>
 		</div>
