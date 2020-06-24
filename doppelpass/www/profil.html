@@ -22,7 +22,7 @@
 				{{ user.nummer }}<br>
 				{{ user.position }}<br>
 				<p style="font-size: small;">
-					{% if user.geburtsdatum %}{{ user.geburtsdatum }}{% else %}Kein Geburtsdatum{% endif %}<br>
+					{% if user.geburtsdatum %}{{ frappe.utils.get_datetime(user.geburtsdatum).strftime('%d.%m.%Y') }}{% else %}Kein Geburtsdatum{% endif %}<br>
 					{% if user.strasse %}{{ user.strasse }}{% else %}Keine Strasse{% endif %}<br>
 					{% if user.plz > 0 %}{{ user.plz }} {% endif %}{% if user.ort %}{{ user.ort }}{% else %}Kein Ort{% endif %}<br>
 					{% if user.telefon %}{{ user.telefon }}{% else %}Keine Telefon-Nummer{% endif %}
