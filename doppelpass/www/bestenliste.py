@@ -40,7 +40,7 @@ def get_context(context):
 			user_dict["anwesend"] = 0
 			
 		try:
-			user_dict["prozent"] = (100 / user_dict["anzahl"]) * user_dict["anwesend"]
+			user_dict["prozent"] = round((100 / user_dict["anzahl"]) * user_dict["anwesend"], 2)
 		except:
 			user_dict["prozent"] = 0
 			
