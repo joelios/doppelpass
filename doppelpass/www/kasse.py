@@ -22,7 +22,8 @@ def get_context(context):
 	context["offen"] = frappe.db.get_single_value('DP Kasse', 'offen')
 	context["bussen"] = frappe.db.sql("""SELECT
 											`tabDP Bussen`.`betrag`,
-											`tabDP User`.`fullname`
+											`tabDP User`.`fullname`,
+											`tabDP Bussen`.`begruendung`
 										FROM `tabDP Bussen`
 										INNER JOIN `tabDP User`
 										ON `tabDP Bussen`.`user` = `tabDP User`.`name`""", as_dict=True)
