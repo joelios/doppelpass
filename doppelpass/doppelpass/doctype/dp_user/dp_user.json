@@ -9,6 +9,7 @@
   "fullname",
   "nummer",
   "position",
+  "lizenz",
   "captain",
   "bild",
   "section_informationen",
@@ -138,10 +139,15 @@
    "fieldtype": "Select",
    "label": "Team Ansicht",
    "options": "Einfach\nDetailiert"
+  },
+  {
+   "fieldname": "lizenz",
+   "fieldtype": "Data",
+   "label": "Lizenz"
   }
  ],
  "image_field": "bild",
- "modified": "2020-09-07 13:14:48.756109",
+ "modified": "2020-09-08 09:07:36.629675",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP User",
