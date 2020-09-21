@@ -23,27 +23,28 @@
 <!-- Tab panes -->
 <div class="tab-content">
 	<div class="tab-pane container active" id="tabelle" style="padding-left: 0px; padding-right: 0px;">
-		{% if ranking in tabelle["data"]["regions"] %}
+		<p style="color:white;">{{ tabelle["data"]["title"] }}</p>
+		{% if tabelle["data"]["regions"][0]['rows'] %}
 		<table class="table table-striped" style="color: white; text-align: center; font-size: 12px;" id="tabelle">
 			<thead>
 				<tr>
+					<th>Rg.</th>
 					<th>Team</th>
-					<th>Spiele</th>
-					<th>S / U / N</th>
-					<th>TV</th>
+					<th>gSp</th>
+					<th>SoW</th>
 					<th>TD</th>
-					<th>Punkte</th>
+					<th>PQ</th>
 				</tr>
 			</thead>
 			<tbody>
 			{% for ranking in tabelle["data"]["regions"][0]["rows"] %}
 				<tr>
-					<td>{{ ranking["data"]["rank"] }} <img src="{{ ranking["cells"][1]["image"]["url"] }}" width="25"></td>
-					<td>{{ ranking["cells"][3]["text"][0] }}</td>
-					<td>{{ ranking["cells"][4]["text"][0] }} / {{ ranking["cells"][5]["text"][0] }} / {{ ranking["cells"][6]["text"][0] }}</td>
-					<td>{{ ranking["cells"][7]["text"][0] }}</td>
-					<td>{{ ranking["cells"][8]["text"][0] }}</td>
-					<td>{{ ranking["cells"][9]["text"][0] }}</td>
+					<td>{{ ranking["data"]["rank"] }} </td>
+					<td><img src="{{ ranking["cells"][1]["image"]["url"] }}" width="25"></td>
+					<td>{{ ranking["cells"][4]["text"][0] }}</td>
+					<td>{{ ranking["cells"][5]["text"][0] }}</td>
+					<td>{{ ranking["cells"][11]["text"][0] }}</td>
+					<td>{{ ranking["cells"][12]["text"][0] }}</td>
 				</tr>
 			{% endfor %}
 			</tbody>
