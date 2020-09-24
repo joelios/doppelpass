@@ -30,7 +30,7 @@
 								{{ anzahl }}
 							</div>
 							<div class="col-8">
-								<strong>{{ event.typ }}</strong><br>
+								<strong>{{ event.typ }} <i class="far fa-address-book" onclick="show_teilnehmer('{{ event.name }}');"></i></strong><br>
 								<i class="fas fa-map-marker-alt"></i> {{ event.ort }}
 							</div>
 							<div class="col-4">
@@ -90,7 +90,7 @@
 		</div>
 		<!-- 2. Spielbetrieb -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" style="color: {{ schriftfarbe or 'white' }};" >
 				<li class="nav-item">
@@ -162,7 +162,7 @@
 		</div>
 		<!-- 3. Kalender -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<div class="row">
 				{% for event in events_in_zukunft %}
 					{% set vars = {'details_zu_events_': event.name} %}
@@ -198,7 +198,7 @@
 		</div>
 		<!-- 4. Präsenz -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<table class="table table-striped" style="color: {{ schriftfarbe or 'white' }}; font-size: 12px;" id="tabelle_prasenz">
 				<thead>
 					<tr>
@@ -220,7 +220,7 @@
 		</div>
 		<!-- 5. Topscorer -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<table class="table table-striped" style="color: {{ schriftfarbe or 'white' }}; font-size: 12px;" id="tabelle_skorerpunkte">
 				<thead>
 					<tr>
@@ -244,7 +244,7 @@
 		</div>
 		<!-- 6. Kasse -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<div class="row">
 				<div class="col-12">
 					<center>Saldo<br><div style="color: #FFD700;">{{ "{:,.2f}".format(saldo).replace(",", "'") }}</div></center>
@@ -297,7 +297,7 @@
 		</div>
 		<!-- 7. Team -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<center><p><b>Team</b></p><img src="/files/Team.jpg" class="rounded"></center>
 			<div class="row">
 				{% for user in users %}
@@ -328,7 +328,7 @@
 		</div>
 		<!-- 8. Profil -->
 		<div class="carousel-item">
-			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" style="margin-top: 5vh; margin-bottom: 2vh;" onclick="$('.carousel').carousel(0);">
+			<img src="assets/doppelpass/images/teamplaner_wordmark_transparent.png" class="mx-auto d-block img-fluid" onclick="$('.carousel').carousel(0);">
 			<center><p><b>Profil</b></p></center>
 			<div class="row">
 				<div class="col-2"></div>
