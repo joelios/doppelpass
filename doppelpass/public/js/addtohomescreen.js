@@ -634,7 +634,6 @@ window.addToHomescreen = ath;
 
 
 
-
 function abmelden(ref) {
 	frappe.call({
 		method: 'doppelpass.www.hauptmenu.abmelden',
