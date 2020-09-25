@@ -62,17 +62,6 @@
 	{%- endfor -%}
 	{% block script %}{% endblock %}
 	<script>
-		/*if (window.location.href.indexOf("update-password?key=") > -1) {} else {
-			if (
-				(("standalone" in window.navigator) && !window.navigator.standalone)
-				||
-				( !window.matchMedia('(display-mode: standalone)').matches )
-			) {
-				addToHomescreen();
-			}
-		}*/
-	</script>
-	<script>
 	window.addEventListener('orientationchange', checkOrientation, false);
 	$( document ).ready(function() {
 		checkOrientation();
