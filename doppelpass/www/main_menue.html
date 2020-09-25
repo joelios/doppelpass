@@ -2473,22 +2473,19 @@
 					</svg>
 				</center>
 			</div>
-			<center><p><b>Profil</b></p></center>
-			<div class="row">
-				<div class="col-2"></div>
-				<div class="col-8">
+			<center><p><b>Spieler-Profil #{{ user.nummer }}</b></p></center>
+			<div class="row" style="margin-bottom: 5vh;">
+				<div class="col-1"></div>
+				<div class="col-6">
 					{% if user.bild %}
 					<img src="{{ user.bild }}" class="rounded">
 					{% else %}
 					<img src="assets/doppelpass/images/user.png" class="rounded">
 					{% endif %}
 				</div>
-				<div class="col-2"></div>
-				<div class="col-2"></div>
-				<div class="col-8" style="font-size: 30px; color: {{ schriftfarbe or 'white' }};">
+				<div class="col-4" style="/*font-size: 30px; */color: {{ schriftfarbe or 'white' }};">
 					<center>
 						{{ user.fullname }}<br>
-						{{ user.nummer }}<br>
 						{{ user.position }}<br>
 						<p style="font-size: small;">
 							{% if user.geburtsdatum %}{{ frappe.utils.get_datetime(user.geburtsdatum).strftime('%d.%m.%Y') }}{% else %}Kein Geburtsdatum{% endif %}<br>
@@ -2498,60 +2495,45 @@
 						</p>
 					</center>
 				</div>
+				<div class="col-1"></div>
+			</div>
+			<center><p><b>Farb Konfiguration</b></p></center>
+			<div class="row">
+				<div class="col-1"></div>
+				<div class="col-7">
+					<p>Primäre Hintergrundfarbe:</p>
+				</div>
+				<div class="col-4">
+					<input type="color" id="pimebackgroundcolor" name="pimebackgroundcolor" value="{{ primar_bg }}" onchange="primebackground_change();">
+				</div>
+				<div class="col-1"></div>
+				<div class="col-7">
+					<p>Sekundäre Hintergrundfarbe:</p>
+				</div>
+				<div class="col-4">
+					<input type="color" id="secbackgroundcolor" name="secbackgroundcolor" value="{{ sekundaer_bg }}" onchange="secbackground_change();">
+				</div>
+				<div class="col-1"></div>
+				<div class="col-7">
+					<p>Schriftfarbe:</p>
+				</div>
+				<div class="col-4">
+					<input type="color" id="schriftfarbe" name="schriftfarbe" value="{{ schriftfarbe }}" onchange="schriftfarbe_change();">
+				</div>
 				<div class="col-2"></div>
-				<div class="col-2"></div>
-				<div class="col-8" style="font-size: 30px; color: {{ schriftfarbe or 'white' }};">
+				<div class="col-8">
 					<center>
-						<button class="btn" style="color: {{ schriftfarbe or 'white' }};" onclick="window.location='https://github.com/joelios/doppelpass/issues/new';">
+						<button class="btn" style="color: {{ schriftfarbe or 'white' }};" onclick="reset_colors();">
 							<center>
-								<i class="fab fa-github" style="font-size: 2rem;"></i><br>
-								Report Issue
+								<b>Farben zurücksetzen</b>
 							</center>
 						</button>
 					</center>
 				</div>
 				<div class="col-2"></div>
 			</div>
-			<center><p><b>Profil Settings</b></p></center>
+			<center><p><b>Profil Daten</b></p></center>
 			<div class="row" style="margin-bottom: 10vh;">
-				<div class="col-2"></div>
-				<div class="col-8" style="color: {{ schriftfarbe or 'white' }};">
-					<center>
-						<form>
-							<label for="pimebackgroundcolor">Wähle Deine primäre Hintergrundfarbe:</label>
-							<input type="color" id="pimebackgroundcolor" name="pimebackgroundcolor" value="{{ primar_bg }}" onchange="primebackground_change();">
-						</form>
-						<form>
-							<label for="secbackgroundcolor">Wähle Deine sekundäre Hintergrundfarbe:</label>
-							<input type="color" id="secbackgroundcolor" name="secbackgroundcolor" value="{{ sekundaer_bg }}" onchange="secbackground_change();">
-						</form>
-						<form>
-							<label for="schriftfarbe">Wähle Deine Schriftfarbe:</label>
-							<input type="color" id="schriftfarbe" name="schriftfarbe" value="{{ schriftfarbe }}" onchange="schriftfarbe_change();">
-						</form>
-						<center>
-							<button class="btn" style="color: {{ schriftfarbe or 'white' }};" onclick="reset_colors();">
-								<center>
-									<b>Farben zurücksetzen</b>
-								</center>
-							</button>
-						</center><br><br>
-					</center>
-				</div>
-				<div class="col-2"></div>
-				<div class="col-2"></div>
-				<div class="col-8" style="color: {{ schriftfarbe or 'white' }};">
-					<center>
-						<form>
-							<label for="team_ansicht">Wähle die Standardansicht der Team-Liste:</label>
-							<select class="form-control" id="team_ansicht" value="{{ team_ansicht }}" onchange="team_ansicht_change();">
-								<option value='Einfach' {% if team_ansicht == 'Einfach' %}selected{% endif %}>Einfach</option>
-								<option value='Detailiert' {% if team_ansicht == 'Detailiert' %}selected{% endif %}>Detailiert</option>
-							</select>
-						</form>
-					</center>
-				</div>
-				<div class="col-2"></div>
 				<div class="col-2"></div>
 				<div class="col-8" style="color: {{ schriftfarbe or 'white' }};">
 					<center>
