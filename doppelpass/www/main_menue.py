@@ -85,6 +85,11 @@ def get_context(context):
 		user_dict["tore"] = user_data.tore
 		user_dict["assists"] = user_data.assists
 		user_dict["total_punkte"] = user_data.tore + user_data.assists
+		user_roles = frappe.get_roles()
+		if 'TP Admin' not in user_roles:
+			user_dict["change_rechte"] = 'nein'
+		else:
+			user_dict["change_rechte"] = 'ja'
 		
 		context["prasenz"].append(user_dict)
 		

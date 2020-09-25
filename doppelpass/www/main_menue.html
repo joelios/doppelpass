@@ -1647,7 +1647,7 @@
 				</thead>
 				<tbody>
 				{% for user in prasenz %}
-					<tr onclick="change_score('{{ user.user_id }}', '{{ user.user }}');">
+					<tr{% if user.change_rechte == 'ja' %} onclick="change_score('{{ user.user_id }}', '{{ user.user }}');"{% endif %}>
 						<td>{{ user.user }}</td>
 						<td>{{ user.tore }}</td>
 						<td>{{ user.assists }}</td>
