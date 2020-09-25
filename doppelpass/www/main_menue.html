@@ -2497,6 +2497,39 @@
 				</div>
 				<div class="col-1"></div>
 			</div>
+			<center><p><b>Massen Mutation</b></p></center>
+			<div class="row" style="margin-bottom: 5vh;">
+				<div class="col-1"></div>
+				<div class="col-10">
+					<form>
+						<label for="mutation_von">Von:</label>
+						<input type="date" class="form-control" id="mutation_von">
+						<label for="mutation_bis">Bis:</label>
+						<input type="date" class="form-control" id="mutation_bis">
+					</form>
+				</div>
+				<div class="col-1"></div>
+				<div class="col-1"></div>
+				<div class="col-5">
+					<center>
+						<button class="btn" style="color: {{ schriftfarbe or 'white' }};" onclick="massen_abmelden();">
+							<center>
+								<b>Abmelden</b>
+							</center>
+						</button>
+					</center>
+				</div>
+				<div class="col-5">
+					<center>
+						<button class="btn" style="color: {{ schriftfarbe or 'white' }};" onclick="massen_anmelden();">
+							<center>
+								<b>Anmelden</b>
+							</center>
+						</button>
+					</center>
+				</div>
+				<div class="col-1"></div>
+			</div>
 			<center><p><b>Farb Konfiguration</b></p></center>
 			<div class="row">
 				<div class="col-1"></div>
@@ -2592,6 +2625,36 @@
 				}
 			});
 		}
+		
+		function massen_abmelden() {
+			var von = $('#mutation_von').val();
+			var bis = $('#mutation_bis').val();
+			if ((!von)) {
+				frappe.msgprint("Bitte tragen Sie ein 'Von'-Datum ein!", "Fehlende Angaben");
+				return
+			} else {
+				if ((!bis)) {
+					frappe.msgprint("Bitte tragen Sie ein 'Bis'-Datum ein!", "Fehlende Angaben");
+					return
+				} else {
+					frappe.call({
+						method: 'doppelpass.www.main_menue.massen_abmelden',
+						args: {
+							'von': von,
+							'bis': bis
+						},
+						callback: function(r) {
+							if(r.message != 'fehler') {
+								location.reload();
+							} else {
+								frappe.msgprint("Die An-/Abmeldefrist für den gewünschten Zeitraum ist abgelaufen", "Gesperrte Events");
+								return
+							}
+						}
+					});
+				}
+			}
+		}
 
 		function anmelden(_event) {
 			frappe.call({
@@ -2606,6 +2669,36 @@
 					} 
 				}
 			});
+		}
+		
+		function massen_anmelden() {
+			var von = $('#mutation_von').val();
+			var bis = $('#mutation_bis').val();
+			if ((!von)) {
+				frappe.msgprint("Bitte tragen Sie ein 'Von'-Datum ein!", "Fehlende Angaben");
+				return
+			} else {
+				if ((!bis)) {
+					frappe.msgprint("Bitte tragen Sie ein 'Bis'-Datum ein!", "Fehlende Angaben");
+					return
+				} else {
+					frappe.call({
+						method: 'doppelpass.www.main_menue.massen_anmelden',
+						args: {
+							'von': von,
+							'bis': bis
+						},
+						callback: function(r) {
+							if(r.message != 'fehler') {
+								location.reload();
+							} else {
+								frappe.msgprint("Die An-/Abmeldefrist für den gewünschten Zeitraum ist abgelaufen", "Gesperrte Events");
+								return
+							}
+						}
+					});
+				}
+			}
 		}
 		
 		function show_teilnehmer(event) {

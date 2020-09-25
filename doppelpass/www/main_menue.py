@@ -138,6 +138,19 @@ def get_context(context):
 def abmelden(ref):
 	frappe.db.sql("""DELETE FROM `tabTeilnehmer` WHERE `name` = '{ref}'""".format(ref=ref), as_list=True)
 	return True
+
+@frappe.whitelist()
+def massen_abmelden(von, bis):
+	if von <= nowdate():
+		return 'fehler'
+	if bis <= nowdate():
+		return 'fehler'
+	von = von + " 00:00:00"
+	bis = bis + " 23:59:59"
+	alle_events = frappe.db.sql("""SELECT `name` FROM `tabTeilnehmer` WHERE `user` = '{user}' AND `parent` IN (SELECT `name` FROM `tabDP Event` WHERE `start` >= '{von}' AND `start` <= '{bis}')""".format(von=von, bis=bis, user=frappe.session.user), as_dict=True)
+	for event in alle_events:
+		frappe.db.sql("""DELETE FROM `tabTeilnehmer` WHERE `name` = '{ref}'""".format(ref=event.name), as_list=True)
+	return True
 	
 @frappe.whitelist()
 def anmelden(event):
@@ -145,6 +158,25 @@ def anmelden(event):
 	row = event.append('anmeldungen', {})
 	row.user = frappe.session.user
 	event.save(ignore_permissions=True)
+	return True
+	
+@frappe.whitelist()
+def massen_anmelden(von, bis):
+	if von <= nowdate():
+		return 'fehler'
+	if bis <= nowdate():
+		return 'fehler'
+	von = von + " 00:00:00"
+	bis = bis + " 23:59:59"
+	alle_events = frappe.db.sql("""SELECT `name` FROM `tabDP Event` WHERE `start` >= '{von}' AND `start` <= '{bis}'""".format(von=von, bis=bis), as_dict=True)
+	for _event in alle_events:
+		found = False
+		event = frappe.get_doc("DP Event", _event.name)
+		for anmeldung in event.anmeldungen:
+			if anmeldung.user == frappe.session.user:
+				found = True
+		if not found:
+			anmelden(event.name)
 	return True
 	
 @frappe.whitelist()
