@@ -81,6 +81,7 @@ def get_context(context):
 		
 		# skorerpunkte
 		user_data = frappe.get_doc("DP User", user.name)
+		user_dict["user_id"] = user_data.name
 		user_dict["tore"] = user_data.tore
 		user_dict["assists"] = user_data.assists
 		user_dict["total_punkte"] = user_data.tore + user_data.assists
@@ -138,6 +139,37 @@ def get_context(context):
 def abmelden(ref):
 	frappe.db.sql("""DELETE FROM `tabTeilnehmer` WHERE `name` = '{ref}'""".format(ref=ref), as_list=True)
 	return True
+	
+@frappe.whitelist()
+def abmelden_mit_busse(ref, user, event):
+	frappe.db.sql("""DELETE FROM `tabTeilnehmer` WHERE `name` = '{ref}'""".format(ref=ref), as_list=True)
+	kasse = frappe.get_doc("DP Kasse")
+	row = kasse.append('bussen', {})
+	row.user = user
+	row.betrag = 10.00
+	event = frappe.get_doc("DP Event", event)
+	row.begruendung = 'Nicht abgemeldet am ' + event.start.strftime('%d.%m.%Y')
+	kasse.save(ignore_permissions=True)
+	return True
+	
+@frappe.whitelist()
+def zu_spaet(user, event):
+	kasse = frappe.get_doc("DP Kasse")
+	row = kasse.append('bussen', {})
+	row.user = user
+	row.betrag = 5.00
+	event = frappe.get_doc("DP Event", event)
+	row.begruendung = 'Zu Spät am ' + event.start.strftime('%d.%m.%Y')
+	kasse.save(ignore_permissions=True)
+	return True
+	
+@frappe.whitelist()
+def change_score(user, tore, assists):
+	user = frappe.get_doc("DP User", user)
+	user.tore = tore
+	user.assists = assists
+	user.save(ignore_permissions=True)
+	return True
 
 @frappe.whitelist()
 def massen_abmelden(von, bis):
@@ -182,10 +214,15 @@ def massen_anmelden(von, bis):
 @frappe.whitelist()
 def show_teilnehmer(event):
 	event = frappe.get_doc("DP Event", event)
+	user_roles = frappe.get_roles()
 	anmeldungen = []
 	for anmeldung in event.anmeldungen:
 		user = frappe.get_doc("DP User", anmeldung.user)
-		anmeldungen.append([user.fullname, user.position])
+		if 'TP Admin' not in user_roles:
+			anmeldungen.append([user.fullname, user.position])
+		else:
+			click_object = """<a onclick="show_user_verwaltung('{user}', '{event}', '{fullname}', '{teilnehmer_referenz}');">{fullname}</a>""".format(user=anmeldung.user, fullname=user.fullname, event=event.name, teilnehmer_referenz=anmeldung.name)
+			anmeldungen.append([click_object, user.position])
 	return anmeldungen
 	
 @frappe.whitelist()

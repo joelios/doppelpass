@@ -1647,7 +1647,7 @@
 				</thead>
 				<tbody>
 				{% for user in prasenz %}
-					<tr>
+					<tr onclick="change_score('{{ user.user_id }}', '{{ user.user }}');">
 						<td>{{ user.user }}</td>
 						<td>{{ user.tore }}</td>
 						<td>{{ user.assists }}</td>
@@ -2626,6 +2626,23 @@
 			});
 		}
 		
+		
+		function abmelden_mit_busse(ref, user, event) {
+			frappe.call({
+				method: 'doppelpass.www.main_menue.abmelden_mit_busse',
+				args: {
+					'ref': ref,
+					'user': user,
+					'event': event
+				},
+				callback: function(r) {
+					if(r.message) {
+						location.reload();
+					} 
+				}
+			});
+		}
+		
 		function massen_abmelden() {
 			var von = $('#mutation_von').val();
 			var bis = $('#mutation_bis').val();
@@ -2709,13 +2726,70 @@
 				},
 				callback: function(r) {
 					if(r.message) {
-						console.log(r.message);
 						var nachricht = '<table style="width: 100%;"><thead><tr><th>Spieler</th><th>Position</th></thead><tbody>';
 						for (var i = 0; i < r.message.length; i++) {
 							nachricht += '<tr><td>' + r.message[i][0] + '</td><td>' + r.message[i][1] + '</td></tr>';
 						}
 						nachricht += '</tbody></table>';
 						frappe.msgprint(nachricht, 'Anmeldungen Event');
+					} 
+				}
+			});
+		}
+		
+		function show_user_verwaltung(user, event, fullname, teilnehmer_referenz) {
+			var nachricht = '<b>' + fullname + '</b><br>';
+			nachricht = nachricht + '<button type="button" class="btn btn-secondary" onclick="abmelden(' + "'" + teilnehmer_referenz+ "'" + ');">Abmelden <b>ohne</b> Busse</button><br><br>';
+			nachricht = nachricht + '<button type="button" class="btn btn-secondary" onclick="abmelden_mit_busse(' + "'" + teilnehmer_referenz + "', '" + user + "', '" + event + "'" + ');">Abmelden <b>mit</b> Busse</button><br><br>';
+			nachricht = nachricht + '<button type="button" class="btn btn-secondary"onclick="zu_spaet(' + "'" + user + "', '" + event + "'" + ');">Zu Spät</button>';
+			frappe.msgprint(nachricht, 'Spieler Management');
+		}
+		
+		function change_score(user, fullname) {
+			var nachricht = '<b>' + fullname + '</b><br>';
+			nachricht = nachricht + '<form><label for="tore">Tore:</label><input type="number" class="form-control" id="tore"><label for="assists">Assists:</label><input type="number" class="form-control" id="assists"></form>';
+			nachricht = nachricht + '<br><button type="button" class="btn btn-secondary"onclick="save_score(' + "'" + user + "'" + ');">Speichern</button>';
+			frappe.msgprint(nachricht, 'Spieler Management');
+		}
+		
+		function save_score(user) {
+			var tore = $('#tore').val();
+			var assists = $('#assists').val();
+			if (!tore) {
+				frappe.msgprint('Bitte tragen Sie eine Anzahl Tore ein', 'Fehlende Angaben');
+				return
+			} else {
+				if (!assists) {
+					frappe.msgprint('Bitte tragen Sie eine Anzahl Assists ein', 'Fehlende Angaben');
+					return
+				} else {
+				frappe.call({
+					method: 'doppelpass.www.main_menue.change_score',
+					args: {
+						'user': user,
+						'tore': tore,
+						'assists': assists
+					},
+					callback: function(r) {
+						if(r.message) {
+							location.reload();
+						} 
+					}
+				});
+				}
+			}
+		}
+		
+		function zu_spaet(user, event) {
+			frappe.call({
+				method: 'doppelpass.www.main_menue.zu_spaet',
+				args: {
+					'user': user,
+					'event': event
+				},
+				callback: function(r) {
+					if(r.message) {
+						location.reload();
 					} 
 				}
 			});
