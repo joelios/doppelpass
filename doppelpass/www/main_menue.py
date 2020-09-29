@@ -26,7 +26,8 @@ def get_context(context):
 												`tabDP Event`.`typ`,
 												`tabDP Event`.`start`,
 												`tabDP Event`.`ort`,
-												`tabDP Event`.`name`
+												`tabDP Event`.`name`,
+												`tabDP Event`.`online`
 											FROM `tabDP Event`
 											WHERE `start` >= '{nowdate}'
 											ORDER BY `start` ASC
