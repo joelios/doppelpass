@@ -13,7 +13,15 @@
   "section_match",
   "gegner",
   "section_teilnehmer",
-  "anmeldungen"
+  "anmeldungen",
+  "section_gameday_preview",
+  "gd_gegner",
+  "gd_rang",
+  "gd_punkte",
+  "gd_tordiff",
+  "gd_direktbegegnung",
+  "start_linien",
+  "match_linien"
  ],
  "fields": [
   {
@@ -75,9 +83,51 @@
    "fieldtype": "Table",
    "label": "Teilnehmer",
    "options": "Teilnehmer"
+  },
+  {
+   "fieldname": "section_gameday_preview",
+   "fieldtype": "Section Break",
+   "label": "GameDay Preview"
+  },
+  {
+   "fieldname": "gd_gegner",
+   "fieldtype": "Data",
+   "label": "Gegner"
+  },
+  {
+   "fieldname": "gd_rang",
+   "fieldtype": "Data",
+   "label": "Rang"
+  },
+  {
+   "fieldname": "gd_punkte",
+   "fieldtype": "Data",
+   "label": "Punkte"
+  },
+  {
+   "fieldname": "gd_tordiff",
+   "fieldtype": "Data",
+   "label": "TorDiff"
+  },
+  {
+   "fieldname": "gd_direktbegegnung",
+   "fieldtype": "Data",
+   "label": "Direktbegegnung"
+  },
+  {
+   "fieldname": "start_linien",
+   "fieldtype": "Table",
+   "label": "Start Linien",
+   "options": "Start Linien"
+  },
+  {
+   "fieldname": "match_linien",
+   "fieldtype": "Table",
+   "label": "Match Linien",
+   "options": "Match Linien"
   }
  ],
- "modified": "2020-04-19 21:22:52.638255",
+ "modified": "2020-09-29 14:53:49.020624",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP Event",

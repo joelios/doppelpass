@@ -1,0 +1,71 @@
+{
+ "creation": "2020-09-29 14:53:03.977459",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "linie",
+  "steuerung",
+  "tor",
+  "dev_links",
+  "dev_rechts",
+  "fluegel",
+  "center",
+  "top"
+ ],
+ "fields": [
+  {
+   "fieldname": "linie",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Linie"
+  },
+  {
+   "fieldname": "steuerung",
+   "fieldtype": "Select",
+   "label": "Steurung",
+   "options": "Links\nRechts"
+  },
+  {
+   "fieldname": "tor",
+   "fieldtype": "Data",
+   "label": "Tor"
+  },
+  {
+   "fieldname": "dev_links",
+   "fieldtype": "Data",
+   "label": "Dev links"
+  },
+  {
+   "fieldname": "dev_rechts",
+   "fieldtype": "Data",
+   "label": "Dev rechts"
+  },
+  {
+   "fieldname": "fluegel",
+   "fieldtype": "Data",
+   "label": "Fl\u00fcgel"
+  },
+  {
+   "fieldname": "center",
+   "fieldtype": "Data",
+   "label": "Center"
+  },
+  {
+   "fieldname": "top",
+   "fieldtype": "Data",
+   "label": "Top"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-09-29 15:01:06.463211",
+ "modified_by": "Administrator",
+ "module": "Doppelpass",
+ "name": "Match Linien",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
