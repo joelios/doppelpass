@@ -263,7 +263,7 @@
 				<div class="row" style="padding-left: 10vw; padding-right: 10vw;">
 					<div class="col"><center><b>Demnächst</b></center></div>
 				</div>
-				<div class="row" style="margin-bottom: 10vh; padding-left: 10vw; padding-right: 10vw;">
+				<div class="row" style="{% if event.typ != 'Match' %}margin-bottom: 10vh; {% endif %}padding-left: 10vw; padding-right: 10vw;">
 					<div class="col" style="background-color: {{ sekundaer_bg }}; border: 5px solid {% if event.typ == 'Match' %}#FFD700{% else %}#bbbbbb{% endif %}; border-radius: 25px;">
 						<div class="row">
 							<div class="col-10">
@@ -300,6 +300,13 @@
 						</div>
 					</div>
 				</div>
+				{% if event.typ == 'Match' %}
+					<div class="row" style="margin-bottom: 5vh; color: #FFD700;" onclick="window.open('/gameday','_self')">
+						<div class="col"></div>
+						<div class="col"><center><b>GameDay Preview</b></center></div>
+						<div class="col"></div>
+					</div>
+				{% endif %}
 			{% endif %}
 			<div class="row" style="margin-bottom: 5vh;">
 				<div class="col">
