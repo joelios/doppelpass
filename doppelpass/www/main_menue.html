@@ -2598,12 +2598,15 @@
 	<script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 	<script>
 		$(document).ready(function () {
+			$('.carousel').carousel(0);
+			
 			$('#tabelle_skorerpunkte').DataTable({
 				"order": [[ 3, "desc" ], [ 1, "desc" ], [ 2, "desc" ], [ 0, "desc" ]],
 				"paging":   false,
 				"info":     false,
 				"searching": false
 			});
+			
 			$('#tabelle_prasenz').DataTable({
 				"order": [[ 2, "desc" ], [ 0, "desc" ]],
 				"paging":   false,
