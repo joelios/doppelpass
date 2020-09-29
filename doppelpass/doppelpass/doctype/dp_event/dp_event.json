@@ -15,6 +15,7 @@
   "section_teilnehmer",
   "anmeldungen",
   "section_gameday_preview",
+  "online",
   "gd_gegner",
   "gd_rang",
   "gd_punkte",
@@ -125,9 +126,15 @@
    "fieldtype": "Table",
    "label": "Match Linien",
    "options": "Match Linien"
+  },
+  {
+   "default": "0",
+   "fieldname": "online",
+   "fieldtype": "Check",
+   "label": "Online"
   }
  ],
- "modified": "2020-09-29 14:53:49.020624",
+ "modified": "2020-09-29 15:40:50.694410",
  "modified_by": "Administrator",
  "module": "Doppelpass",
  "name": "DP Event",
